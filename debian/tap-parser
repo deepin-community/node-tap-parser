@@ -1,0 +1,3 @@
+#!/bin/sh
+# need a wrapper in order to find usage
+exec /usr/lib/nodejs/tap-parser/bin/cmd.js "$@"

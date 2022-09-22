@@ -1,0 +1,21 @@
+Source: node-events-to-array
+Section: web
+Priority: optional
+Maintainer: Debian Javascript Maintainers <pkg-javascript-devel@lists.alioth.debian.org>
+Uploaders: Bastien Roucariès <rouca@debian.org>
+Build-Depends:
+ debhelper (>= 10)
+ , dh-buildinfo
+ , nodejs (>= 6)
+Standards-Version: 4.1.0
+Homepage: https://github.com/isaacs/events-to-array
+
+Package: node-events-to-array
+Architecture: all
+Depends:
+ ${misc:Depends}
+ , nodejs
+Description: Put a bunch of emitted events in an array, for testing.
+ This modules is a dependency of tap-parser
+ .
+ Node.js is an event-based server-side JavaScript engine.

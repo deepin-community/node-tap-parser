@@ -1,0 +1,57 @@
+node-tap-parser (7.0.0+ds1-5) unstable; urgency=medium
+
+  * Team upload
+  * Allow STDERR in autopkgtest (fixes debci for Node.js ≥ 12)
+
+ -- Xavier Guimard <yadd@debian.org>  Tue, 03 Mar 2020 18:34:02 +0100
+
+node-tap-parser (7.0.0+ds1-4) unstable; urgency=medium
+
+  * Team upload
+  * Bump debhelper compatibility level to 12
+  * Declare compliance with policy 4.4.1
+  * Add "Rules-Requires-Root: no"
+  * Add debian/gbp.conf
+  * Add upstream/metadata
+  * Declare compliance with policy 4.5.0
+  * Use pkg-js-tools auto install
+
+ -- Xavier Guimard <yadd@debian.org>  Mon, 02 Mar 2020 23:29:17 +0100
+
+node-tap-parser (7.0.0+ds1-3) unstable; urgency=medium
+
+  * Avoid debci failure due to buffer warning
+
+ -- Bastien Roucariès <rouca@debian.org>  Mon, 07 Jan 2019 00:22:47 +0100
+
+node-tap-parser (7.0.0+ds1-2) unstable; urgency=medium
+
+  * Move to salsa
+  * Update policy and compat
+
+ -- Bastien Roucariès <rouca@debian.org>  Mon, 25 Jun 2018 18:15:38 +0200
+
+node-tap-parser (7.0.0+ds1-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- Bastien Roucariès <rouca@debian.org>  Thu, 30 Nov 2017 12:40:21 +0100
+
+node-tap-parser (6.0.1+ds1-2) unstable; urgency=medium
+
+  * Fix autopkgtest
+
+ -- Bastien Roucariès <rouca@debian.org>  Fri, 15 Sep 2017 22:03:22 +0200
+
+node-tap-parser (6.0.1+ds1-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Add myself as maintainer
+
+ -- Bastien Roucariès <rouca@debian.org>  Mon, 11 Sep 2017 13:39:11 +0200
+
+node-tap-parser (3.0.3-1) unstable; urgency=low
+
+  * Initial release (Closes: #844030)
+
+ -- Jérémy Lal <kapouer@melix.org>  Sat, 12 Nov 2016 00:19:05 +0100

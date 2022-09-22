@@ -1,0 +1,26 @@
+From c083b61eef3951a9265ea5e4c53ba4f1050483e6 Mon Sep 17 00:00:00 2001
+From: Callum Locke <callum.locke@gmail.com>
+Date: Thu, 18 Jan 2018 15:04:06 +0000
+Subject: Update repo and homepage entries in package.json
+
+origin: https://github.com/tapjs/tap-parser/pull/60/commits/c97dcb3bfc5348a13a52179284f859288001e19b
+---
+ package.json | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/package.json b/package.json
+index 5b2720c..5eddcac 100644
+--- a/package.json
++++ b/package.json
+@@ -35,9 +35,9 @@
+   },
+   "repository": {
+     "type": "git",
+-    "url": "git://github.com/substack/tap-parser.git"
++    "url": "git://github.com/tapjs/tap-parser.git"
+   },
+-  "homepage": "https://github.com/substack/tap-parser",
++  "homepage": "https://github.com/tapjs/tap-parser",
+   "keywords": [
+     "tap",
+     "test",

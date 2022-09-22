@@ -1,0 +1,44 @@
+From b58809ff8dffdd5a3c43e169e81a381e51ec1209 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Bastien=20Roucari=C3=A8s?= <rouca@debian.org>
+Date: Mon, 7 Jan 2019 00:17:20 +0100
+Subject: Avoid buffer() warning
+
+forwarded: https://github.com/tapjs/tap-parser/issues/62o
+---
+ index.js      | 2 +-
+ test/basic.js | 4 ++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/index.js b/index.js
+index 43a0417..49eb90f 100644
+--- a/index.js
++++ b/index.js
+@@ -323,7 +323,7 @@ class Parser extends MiniPass {
+       return
+ 
+     if (typeof encoding === 'string' && encoding !== 'utf8')
+-      chunk = new Buffer(chunk, encoding)
++      chunk = new Buffer.from(chunk, encoding)
+ 
+     if (Buffer.isBuffer(chunk))
+       chunk += ''
+diff --git a/test/basic.js b/test/basic.js
+index 58110b1..cf7b847 100644
+--- a/test/basic.js
++++ b/test/basic.js
+@@ -14,13 +14,13 @@ t.test('end() can take chunk', function (t) {
+   })
+   t.test('encoding', function (t) {
+     var p = new Parser()
+-    p.end(new Buffer('1..0\n').toString('hex'), 'hex',  t.end)
++    p.end(new Buffer.from('1..0\n').toString('hex'), 'hex',  t.end)
+   })
+ })
+ 
+ t.test('takes a buffer just fine', function (t) {
+   var p = new Parser(theEnd)
+-  p.write(new Buffer('TAP version 13\n'))
++  p.write(new Buffer.from('TAP version 13\n'))
+ 
+   var calledme = false
+   function callme () {
