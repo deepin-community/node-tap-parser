@@ -1,4 +1,0 @@
-debian/tap-parser usr/bin
-bin               usr/lib/nodejs/tap-parser/
-package.json      usr/lib/nodejs/tap-parser/
-index.js          usr/lib/nodejs/tap-parser/

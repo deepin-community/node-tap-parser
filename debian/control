@@ -4,14 +4,14 @@ Uploaders: Jérémy Lal <kapouer@melix.org>, Bastien Roucariès <rouca@debian.or
 Section: javascript
 Testsuite: autopkgtest-pkg-nodejs
 Priority: optional
-Build-Depends:
- debhelper-compat (= 12)
+Build-Depends: debhelper-compat (= 13)
+ , dh-sequence-nodejs
  , help2man <!nodoc>
- , node-glob (>= 7.0.5) <!nocheck>
- , node-js-yaml <!nocheck>
- , node-tap (>= 8) <!nocheck>
- , pkg-js-tools (>= 0.9.20~)
-Standards-Version: 4.5.0
+ , node-minipass
+ , node-yallist
+ , node-yaml (>= 2.0.1~)
+ , dh-nodejs
+Standards-Version: 4.6.1
 Vcs-Browser: https://salsa.debian.org/js-team/node-tap-parser
 Vcs-Git: https://salsa.debian.org/js-team/node-tap-parser.git
 Homepage: https://github.com/substack/tap-parser
@@ -19,12 +19,12 @@ Rules-Requires-Root: no
 
 Package: node-tap-parser
 Architecture: all
-Depends:
- ${misc:Depends}
- , node-js-yaml
- , nodejs (>= 6.11.2~)
-Provides:
- ${nodejs:Provides}
+Depends: ${misc:Depends}
+ , node-minipass
+ , node-yallist
+ , node-yaml (>= 2.0.1~)
+ , nodejs:any
+Provides: ${nodejs:Provides}
 Description: Test anything protocol stream parser - Node.js module
  This module parses tap-formatted input as a stream of JavaScript
  objects.

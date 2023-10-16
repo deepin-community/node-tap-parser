@@ -6,6 +6,25 @@ t.test('passing no options and cb works fine', function (t) {
   p.emit('complete')
 })
 
+t.test('it has a name', t => {
+  t.plan(1)
+  const p = new Parser({ name: 'root' })
+  p.on('child', c => c.on('child', c =>
+    t.equal(c.fullname, 'root child grandchild')))
+
+  p.end(`TAP version 13
+# Subtest: child
+    1..2
+    ok 1 - this is fine
+    # Subtest: grandchild
+        1..1
+        ok 1 - this is fine
+    ok 2 - grandchild
+ok 1 - child
+1..1
+`, 'utf8')
+})
+
 t.test('end() can take chunk', function (t) {
   t.plan(2)
   t.test('string', function (t) {
@@ -14,13 +33,13 @@ t.test('end() can take chunk', function (t) {
   })
   t.test('encoding', function (t) {
     var p = new Parser()
-    p.end(new Buffer('1..0\n').toString('hex'), 'hex',  t.end)
+    p.end(Buffer.from('1..0\n').toString('hex'), 'hex',  t.end)
   })
 })
 
 t.test('takes a buffer just fine', function (t) {
   var p = new Parser(theEnd)
-  p.write(new Buffer('TAP version 13\n'))
+  p.write(Buffer.from('TAP version 13\n'))
 
   var calledme = false
   function callme () {

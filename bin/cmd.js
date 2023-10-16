@@ -1,27 +1,44 @@
 #!/usr/bin/env node
 
-var Parser = require('../')
-var etoa = require('events-to-array')
-var util = require('util')
+const Parser = require('../')
+const etoa = require('events-to-array')
+const util = require('util')
 
-var args = process.argv.slice(2)
-var json = null
-var bail = false
-var preserveWhitespace = true
-var omitVersion = false
+const args = process.argv.slice(2)
+let json = null
+let flat = false
+let bail = false
+let preserveWhitespace = true
+let omitVersion = false
+let strict = false
 
 function version () {
   console.log(require('../package.json').version)
   process.exit(0)
 }
 
-args.forEach(function (arg, i) {
+for (let i = 0; i < args.length; i++) {
+  const arg = args[i]
   if (arg === '-j') {
-    json = args[i + 1] || 2
+    const val = +args[i + 1]
+    if (val >= 0) {
+      json = val
+      i += 1
+    } else
+      json = 2
+    continue
   } else {
-    var m = arg.match(/^--json(?:=([0-9]+))$/)
-    if (m)
-      json = +m[1] || args[i + 1] || 2
+    const m = arg.match(/^--json(?:=([0-9]+))?$/)
+    if (m) {
+      if (+m[1] >= 0)
+        json = +m[1]
+      else if (+args[i + 1] >= 0) {
+        json = +args[i + 1]
+        i += 1
+      } else
+        json = 2
+      continue
+    }
   }
 
   if (arg === '-v' || arg === '--version')
@@ -32,27 +49,35 @@ args.forEach(function (arg, i) {
     preserveWhitespace = false
   else if (arg === '-b' || arg === '--bail')
     bail = true
+  else if (arg === '-B' || arg === '--no-bail')
+    bail = false
   else if (arg === '-t' || arg === '--tap')
     json = 'tap'
   else if (arg === '-l' || arg === '--lines')
     json = 'lines'
   else if (arg === '-h' || arg === '--help')
     usage()
+  else if (arg === '-f' || arg === '--flat')
+    flat = true
+  else if (arg === '-F' || arg === '--no-flat')
+    flat = false
+  else if (arg === '--strict')
+    strict = true
+  else if (arg === '--no-strict')
+    strict = false
+  else if (arg === '-s' || arg === '--silent')
+    json = 'silent'
   else
     console.error('Unrecognized arg: %j', arg)
-
-  if (arg === '-v' || arg === '--version')
-    console.log(require('../package.json').version)
-})
+}
 
 function usage () {
-  console.log(function () {/*
-Usage:
+  console.log(`Usage:
   tap-parser <options>
 
 Parses TAP data from stdin, and outputs the parsed result
-in the format specified by the options.  Default output is
-uses node's `util.format()` method.
+in the format specified by the options.  Default output
+uses node's \`util.inspect()\` method.
 
 Options:
 
@@ -66,95 +91,76 @@ Options:
     Output each parsed line as it is recognized by the parser
 
   -b | --bail
-    Emit a `Bail out!` at the first failed test point encountered
+    Emit a \`Bail out!\` at the first failed test point encountered
+
+  -B | --no-bail
+    Do not bail out at the first failed test point encountered
+    (Default)
+
+  -f | --flat
+    Flatten all assertions to the top level parser
+
+  -F | --no-flat
+    Do not flatten all assertions to the top level parser
+    (Default)
 
   -w | --ignore-all-whitespace
     Skip over blank lines outside of YAML blocks
 
   -o | --omit-version
-    Ignore the `TAP version 13` line at the start of tests
-*/}.toString().split('\n').slice(1, -1).join('\n'))
+    Ignore the \`TAP version 13\` line at the start of tests
 
+  --strict
+    Run the parser in strict mode
+
+  --no-strict
+    Do not run the parser in strict mode
+
+  -s | --silent
+    Do not print output, just exit success/failure based on TAP stream
+`)
+
+  // prevent the EPIPE upstream when the data drops on the floor
+  /* istanbul ignore else */
   if (!process.stdin.isTTY)
     process.stdin.resume()
 
   process.exit()
 }
 
-var yaml = require('js-yaml')
-function tapFormat (msg, indent) {
-  return indent + msg.map(function (item) {
-    switch (item[0]) {
-      case 'child':
-        var comment = item[1][0]
-        var child = item[1].slice(1)
-        return tapFormat([comment], '') + tapFormat(child, '    ')
-
-      case 'version':
-        return 'TAP version ' + item[1] + '\n'
-
-      case 'plan':
-        var p = item[1].start + '..' + item[1].end
-        if (item[1].comment)
-          p += ' # ' + item[1].comment
-        return p + '\n'
-
-      case 'pragma':
-        return 'pragma ' + (item[2] ? '+' : '-') + item[1] + '\n'
-
-      case 'bailout':
-        var r = item[1] === true ? '' : (' ' + item[1])
-        return 'Bail out!' + r + '\n'
-
-      case 'assert':
-        var res = item[1]
-        return (res.ok ? '' : 'not ') + 'ok ' + res.id +
-          (res.name ? ' - ' + res.name.replace(/ \{$/, '') : '') +
-          (res.skip ? ' # SKIP' +
-            (res.skip === true ? '' : ' ' + res.skip) : '') +
-          (res.todo ? ' # TODO' +
-            (res.todo === true ? '' : ' ' + res.todo) : '') +
-          (res.time ? ' # time=' + res.time + 'ms' : '') +
-          '\n' +
-          (res.diag ?
-             '  ---\n  ' +
-             yaml.safeDump(res.diag).split('\n').join('\n  ').trim() +
-             '\n  ...\n'
-             : '')
-
-      case 'extra':
-      case 'comment':
-        return item[1]
-    }
-  }).join('').split('\n').join('\n' + indent).trim() + '\n'
-}
+const yaml = require('tap-yaml')
 
 function format (msg) {
   if (json === 'tap')
-    return tapFormat(msg, '')
+    return Parser.stringify(msg, options)
   else if (json !== null)
     return JSON.stringify(msg, null, +json)
   else
-    return util.inspect(events, null, Infinity)
+    return util.inspect(msg, null, Infinity)
 }
 
-var options = {
+const options = {
   bail: bail,
   preserveWhitespace: preserveWhitespace,
-  omitVersion: omitVersion
+  omitVersion: omitVersion,
+  strict: strict,
+  flat: flat,
 }
 
-var parser = new Parser(options)
-var events = etoa(parser, [ 'pipe', 'unpipe', 'prefinish', 'finish', 'line' ])
-
-process.stdin.pipe(parser)
-if (json === 'lines')
-  parser.on('line', function (l) {
-    process.stdout.write(l)
+if (json === 'lines' || json === 'silent') {
+  const parser = new Parser(options)
+  if (json === 'lines')
+    parser.on('line', l => process.stdout.write(l))
+  parser.on('complete', () => process.exitCode = parser.ok ? 0 : 1)
+  process.stdin.pipe(parser)
+} else {
+  const input = []
+  process.stdin.on('data', c => input.push(c)).on('end', () => {
+    const buf = Buffer.concat(input)
+    const result = Parser.parse(buf, options)
+    const summary = result[ result.length - 1 ]
+    console.log(format(result))
+    if (summary[0] !== 'complete' || !summary[1].ok)
+      process.exitCode = 1
   })
-else
-  process.on('exit', function () {
-    console.log(format(events))
-    if (!parser.ok)
-      process.exit(1)
-  })
+}

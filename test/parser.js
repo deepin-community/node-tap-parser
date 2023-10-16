@@ -1,48 +1,29 @@
-var Parser = require('../')
-var etoa = require('events-to-array')
+const Parser = require('../')
+const etoa = require('events-to-array')
 
-var ignore = [ 'pipe', 'unpipe', 'prefinish', 'finish', 'newListener' ]
-var glob = require('glob')
-var test = require('tap').test
-var path = require('path')
-var fs = require('fs')
+const ignore = [ 'pipe', 'unpipe', 'prefinish', 'finish', 'newListener' ]
+const glob = require('glob')
+const t = require('tap')
+const path = require('path')
+const fs = require('fs')
 
-glob.sync(__dirname + '/fixtures/*.tap').forEach(function (tapfile) {
-  test(path.basename(tapfile), function (t) {
-    var bails = [true, false]
-    var white = [true, false]
-    var omitv = [true, false]
-    var tapContent = fs.readFileSync(tapfile, 'utf8')
+t.jobs = 8
+const tapFiles = fs.readdirSync(__dirname + '/fixtures')
+  .filter(f => /\.tap$/.test(f))
 
-    t.plan(bails.length * white.length * omitv.length)
-
-    bails.forEach(function (bail) {
-      white.forEach(function (white) {
-        omitv.forEach(function (omitv) {
-          var opts = {
-            bail: bail,
-            preserveWhiteSpace: white,
-            omitVersion: omitv
-          }
-
-          t.test(JSON.stringify(opts), function (t) {
-            var outfile = tapfile.replace(/\.tap$/, '')
-            outfile += opts.bail ? '--bail': ''
-            outfile += opts.preserveWhiteSpace ? '--preservewhite': ''
-            outfile += opts.omitVersion ? '--omitversion' : ''
-            outfile += '.json'
-
-            var wanted = require(outfile)
-            var parser = new Parser(opts)
-            var found = etoa(parser, ignore)
-            parser.on('complete', function () {
-              t.same(found, wanted)
-              t.end()
-            })
-            parser.end(tapContent)
-          })
-        })
+for (const tapFile of tapFiles) {
+  const f = `${__dirname}/fixtures/${tapFile}`
+  t.test(tapFile, async t => {
+    t.snapshotFile = path.resolve(__dirname, '..', `tap-snapshots/test/parser/${tapFile}.test.cjs`)
+    t.plan(2)
+    const tapContent = await fs.promises.readFile(f, 'utf8')
+    for (const bail of [true, false]) {
+      const parser = new Parser({bail})
+      const found = etoa(parser, ignore)
+      parser.on('complete', () => {
+        t.matchSnapshot(found, `output bail=${bail}`)
       })
-    })
+      parser.end(tapContent)
+    }
   })
-})
+}

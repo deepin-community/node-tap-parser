@@ -1,3 +1,139 @@
+node-tap-parser (11.0.2+~cs2.1.4-1) unstable; urgency=medium
+
+  * Team upload
+  * Add missing build dependency on dh-nodejs for command dh_nodejs_autodocs
+  * Update standards version to 4.6.1, no changes needed
+  * New upstream version 11.0.2+~cs2.1.4
+
+ -- Yadd <yadd@debian.org>  Fri, 25 Nov 2022 15:04:08 +0100
+
+node-tap-parser (11.0.1+~cs2.1.2-6) unstable; urgency=medium
+
+  * Increase tests timeout from 30 to 120 seconds
+    Closes: #1017600
+
+ -- Jérémy Lal <kapouer@melix.org>  Thu, 18 Aug 2022 10:56:56 +0200
+
+node-tap-parser (11.0.1+~cs2.1.2-5) unstable; urgency=medium
+
+  * Team upload
+
+  [ Jérémy Lal ]
+  * watch: use new tapjs/tap-parser url
+
+  [ Yadd ]
+  * Transition: embed yaml@1.10 (Closes:#1010573)
+
+ -- Yadd <yadd@debian.org>  Fri, 06 May 2022 06:38:56 +0200
+
+node-tap-parser (11.0.1+~cs2.1.2-4) unstable; urgency=medium
+
+  * Team upload
+  * Patch: switch tap-yaml to using yaml 2 api. Closes:#1010573
+  * Depends node-yaml >= 2.0.1
+
+ -- Jérémy Lal <kapouer@melix.org>  Wed, 04 May 2022 23:05:20 +0200
+
+node-tap-parser (11.0.1+~cs2.1.2-3) unstable; urgency=medium
+
+  * Team upload
+  * Fix manpage. Closes:#980293.
+
+ -- Yadd <yadd@debian.org>  Mon, 25 Apr 2022 11:29:15 +0200
+
+node-tap-parser (11.0.1+~cs2.1.2-2) unstable; urgency=medium
+
+  * Team upload
+  * Back to unstable
+
+ -- Yadd <yadd@debian.org>  Mon, 25 Apr 2022 09:33:10 +0200
+
+node-tap-parser (11.0.1+~cs2.1.2-1) experimental; urgency=medium
+
+  * Team upload
+  * New upstream version 11.0.1+~cs2.1.2
+  * Drop lintian overrides
+  * Update copyright
+  * Enable all tests using tap 15
+
+ -- Yadd <yadd@debian.org>  Tue, 12 Apr 2022 18:04:01 +0200
+
+node-tap-parser (10.1.0+~cs2.1.2-3) unstable; urgency=medium
+
+  * Team upload
+  * Back to unstable
+
+ -- Yadd <yadd@debian.org>  Thu, 10 Mar 2022 06:34:15 +0100
+
+node-tap-parser (10.1.0+~cs2.1.2-2) experimental; urgency=medium
+
+  * Team upload
+  * Add missing build dependencies to build manpages
+
+ -- Yadd <yadd@debian.org>  Mon, 07 Mar 2022 18:37:22 +0100
+
+node-tap-parser (10.1.0+~cs2.1.2-1) experimental; urgency=medium
+
+  * Team upload
+  * Replace minipass component by dependency to node-minipass
+    (Closes: #1004646)
+  * New upstream version 10.1.0+~cs2.1.2
+  * Update test for tap 12
+  * Add lintian overrides
+
+ -- Yadd <yadd@debian.org>  Mon, 31 Jan 2022 02:43:56 +0100
+
+node-tap-parser (10.1.0-2) experimental; urgency=medium
+
+  * Team upload
+
+  [ lintian-brush ]
+  * Set upstream metadata fields: Bug-Submit
+  * Update standards version to 4.6.0, no changes needed
+
+  [ Yadd ]
+  * Add ctype=nodejs to component(s)
+  * Fix GitHub tags regex
+  * Fix filenamemangle
+  * Update nodejs dependency to nodejs:any
+
+ -- Yadd <yadd@debian.org>  Wed, 24 Nov 2021 15:29:03 +0100
+
+node-tap-parser (10.1.0-1) experimental; urgency=medium
+
+  * Team upload
+  * New upstream release
+  * Bump debhelper compatibility level to 13
+  * Use dh-sequence-nodejs
+  * Embed events-to-array, minipass and tap-yaml and drop patches
+  * New upstream version 10.1.0
+  * Update dependencies
+  * Add patch to adapt test snapshots to tap 12 and indicates that autopkgtest
+    needs node-tap < 14~ (in debian/tests/autopkgtest-pkg-nodejs.conf)
+  * Remove temporarily components tests (needs tap ≥ 14)
+  * Replace dependency to node-js-yaml by node-yaml + node-yallist
+
+ -- Xavier Guimard <yadd@debian.org>  Wed, 09 Dec 2020 17:14:50 +0100
+
+node-tap-parser (7.0.0+ds1-6) unstable; urgency=medium
+
+  * Team upload
+
+  [ lintian-brush ]
+  * Bump debhelper from old 12 to 13
+  * Set upstream metadata fields: Bug-Submit
+  * Update standards version to 4.6.0, no changes needed
+
+  [ Yadd ]
+  * Refresh patches
+  * Fix filenamemangle
+  * Fix GitHub tags regex
+  * Use dh-sequence-nodejs instead of pkg-js-tools
+  * Update nodejs dependency to nodejs:any
+  * Add fix for js-yaml ≥ 4
+
+ -- Yadd <yadd@debian.org>  Wed, 24 Nov 2021 15:44:44 +0100
+
 node-tap-parser (7.0.0+ds1-5) unstable; urgency=medium
 
   * Team upload

@@ -1,7 +1,6 @@
 var t = require('tap')
 var Parser = require('../')
-var tapContent = function () {/*
-ok 1 - nesting {
+var tapContent = `ok 1 - nesting {
     1..2
     # Subtest: first
         1..2
@@ -27,7 +26,7 @@ ok 4 - async kid {
 
 ok 5 - pass after async kid
 1..5
-*/}.toString().split('\n').slice(1, -1).join('\n') + '\n'
+`
 
 t.test('buffered abort', function (t) {
   t.test('with diags', bufferedTest({some: 'diags'}))
@@ -99,8 +98,8 @@ function bufferedTest (d) { return function (t) {
     lines.push(line)
   })
   p.on('complete', function (results) {
-    t.same(lines, expectLines)
-    t.same(results, expectResults)
+    t.matchSnapshot(lines, 'lines')
+    t.matchSnapshot(results, 'results')
     t.end()
   })
 
@@ -160,8 +159,8 @@ function unbufferedTest (d) { return function (t) {
     lines.push(line)
   })
   p.on('complete', function (results) {
-    t.same(lines, expectLines)
-    t.same(results, expectResults)
+    t.matchSnapshot(lines, 'lines')
+    t.matchSnapshot(results, expectResults)
     t.end()
   })
 

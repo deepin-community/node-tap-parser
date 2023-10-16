@@ -1,9 +1,0 @@
-Tests: runtestsuite-tap-parser
-Depends: node-glob (>= 7)
- , node-tap (>= 8)
- , node-tap-parser
-
-Tests: runtestsuite-events-to-array
-Depends: node-tap (>= 8)
- , node-tap-parser
-Restrictions: allow-stderr

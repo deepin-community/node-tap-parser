@@ -4,15 +4,29 @@
 // and string comments.  Emits "results" event with summary.
 const MiniPass = require('minipass')
 
-const yaml = require('js-yaml')
-const util = require('util')
-const assert = require('assert')
+// this isn't for performance or anything, it just confuses vim's
+// brace-matching to have these in the middle of functions, and
+// i'm too lazy to dig into vim-javascript to fix it.
+const OPEN_BRACE_EOL = /\{\s*$/
+const SPACE_OPEN_BRACE_EOL = / \{$/
+
+// used by the Parser.parse() method
+const etoa = require('events-to-array')
+
+// used by Parser.stringify() and Parser.parse() in flattening mode
+const getId = () => {
+  const id = () => id.current++
+  id.current = 1
+  return id
+}
+
+const yaml = require('tap-yaml')
 
 // every line outside of a yaml block is one of these things, or
 // a comment, or garbage.
 const lineTypes = {
   testPoint: /^(not )?ok(?: ([0-9]+))?(?:(?: -)?( .*?))?(\{?)\n$/,
-  pragma: /^pragma ([+-])([a-z]+)\n$/,
+  pragma: /^pragma ([+-])([a-zA-Z0-9_-]+)\n$/,
   bailout: /^bail out!(.*)\n$/i,
   version: /^TAP version ([0-9]+)\n$/i,
   childVersion: /^(    )+TAP version ([0-9]+)\n$/i,
@@ -21,8 +35,6 @@ const lineTypes = {
   subtestIndent: /^    # Subtest(?:: (.*))?\n$/,
   comment: /^\s*#.*\n$/
 }
-
-const lineTypeNames = Object.keys(lineTypes)
 
 const lineType = line => {
   for (let t in lineTypes) {
@@ -37,7 +49,7 @@ const parseDirective = line => {
   if (!line.trim())
     return false
 
-  line = line.replace(/\{\s*$/, '').trim()
+  line = line.replace(OPEN_BRACE_EOL, '').trim()
   const time = line.match(/^time=((?:[1-9][0-9]*|0)(?:\.[0-9]+)?)(ms|s)$/i)
   if (time) {
     let n = +time[1]
@@ -50,26 +62,42 @@ const parseDirective = line => {
     return [ 'time', n ]
   }
 
-  const type = line.match(/^(todo|skip)\b/i)
+  const type = line.match(/^(todo|skip)(?:\S*)\b(.*)$/i)
   if (!type)
     return false
 
-  return [ type[1].toLowerCase(), line.substr(type[1].length).trim() || true ]
+  return [
+    type[1].toLowerCase(),
+    type[2].trim() || true,
+  ]
 }
 
 class Result {
   constructor (parsed, count) {
     const ok = !parsed[1]
-    const id = +(parsed[2] || count + 1)
+    const id = +(parsed[2] || 0)
     let buffered = parsed[4]
     this.ok = ok
-    this.id = id
+    if (parsed[2])
+      this.id = id
 
     let rest = parsed[3] || ''
     let name
-    rest = rest.replace(/([^\\]|^)((?:\\\\)*)#/g, '$1\n$2').split('\n')
-    name = rest.shift()
-    rest = rest.filter(r => r.trim()).join('#')
+    // We know at this point the parsed result cannot contain \n,
+    // so we can leverage that as a placeholder.
+    // first, replace any PAIR of \ chars with \n
+    // then, split on any # that is not preceeded by \
+    // the first of these is definitely the description
+    // the rest is the directive, if recognized, otherwise
+    // we just lump it onto the description, but escaped.
+    // then any \n chars in either are turned into \ (just one)
+
+    // escape \ with \
+    rest = rest.replace(/(\\\\)/g, '\n')
+
+    rest = rest.split(/(?<=\s|^)(?<!\\)#/g)
+    name = rest.shift().replace(/\\#/g, '#').replace(/\n/g, '\\')
+    rest = rest.join('#').replace(/\\#/g, '#').replace(/\n/g, '\\')
 
     // now, let's see if there's a directive in there.
     const dir = parseDirective(rest.trim())
@@ -83,8 +111,8 @@ class Result {
       this[dirKey] = dirValue
     }
 
-    if (/\{\s*$/.test(name)) {
-      name = name.replace(/\{\s*$/, '')
+    if (OPEN_BRACE_EOL.test(name)) {
+      name = name.replace(OPEN_BRACE_EOL, '')
       buffered = '{'
     }
 
@@ -97,6 +125,112 @@ class Result {
 }
 
 class Parser extends MiniPass {
+  static parse (str, options = {}) {
+    const { flat = false } = options
+    const ignore = [
+      'pipe',
+      'unpipe',
+      'prefinish',
+      'finish',
+      'line',
+      'pass',
+      'fail',
+      'todo',
+      'skip',
+      'result',
+    ]
+    if (flat)
+      ignore.push('assert', 'child', 'plan', 'complete')
+    const parser = new Parser(options)
+    const events = etoa(parser, ignore)
+    if (flat) {
+      const id = getId()
+      parser.on('result', res => {
+        const name = []
+        if (res.fullname)
+          name.push(res.fullname)
+        if (res.name)
+          name.push(res.name)
+        res.name = name.join(' > ').trim()
+        res.fullname = ''
+        res.id = id()
+        events.push(['assert', res])
+      })
+      parser.on('complete', res => {
+        if (!res.bailout)
+          events.push(['plan', { end: id.current - 1, start: 1 }])
+        events.push(['complete', res])
+      })
+    }
+
+    parser.end(str)
+    return events
+  }
+
+  static stringify (msg, { flat = false, indent = '', id = getId() } = {}) {
+    const ind = flat ? '' : indent
+    return ind + msg.map(item => {
+      switch (item[0]) {
+        case 'child':
+          const comment = item[1][0]
+          const child = item[1].slice(1)
+          return Parser.stringify([comment], { flat, indent: '', id }) +
+            Parser.stringify(child, { flat, indent: '    ', id })
+
+        case 'version':
+          return 'TAP version ' + item[1] + '\n'
+
+        case 'plan':
+          if (flat) {
+            if (indent !== '')
+              return ''
+            item[1].start = 1
+            item[1].end = id.current - 1
+          }
+          return item[1].start + '..' + item[1].end
+            + (item[1].comment ? ' # ' + esc(item[1].comment) : '') + '\n'
+
+        case 'pragma':
+          return 'pragma ' + (item[2] ? '+' : '-') + item[1] + '\n'
+
+        case 'bailout':
+          return 'Bail out!' + (item[1] ? (' ' + esc(item[1])) : '') + '\n'
+
+        case 'assert':
+          const res = item[1]
+          if (flat) {
+            res.id = id()
+            const name = []
+            if (res.fullname)
+              name.push(res.fullname)
+            if (res.name)
+              name.push(res.name)
+            res.name = name.join(' > ').trim()
+          }
+          return (res.ok ? '' : 'not ') + 'ok' +
+            (res.id !== undefined ? ' ' + res.id : '' ) +
+            (res.name
+              ? ' - ' + esc(res.name).replace(SPACE_OPEN_BRACE_EOL, '')
+              : '') +
+            (res.skip ? ' # SKIP' +
+              (res.skip === true ? '' : ' ' + esc(res.skip)) : '') +
+            (res.todo ? ' # TODO' +
+              (res.todo === true ? '' : ' ' + esc(res.todo)) : '') +
+            (res.time ? ' # time=' + res.time + 'ms' : '') +
+            '\n' +
+            (res.diag ?
+               '  ---\n  ' +
+               yaml.stringify(res.diag).split('\n').join('\n  ').trim() +
+               '\n  ...\n'
+               : '')
+
+        case 'extra':
+        case 'comment':
+          return item[1]
+      }
+    }).join('').split('\n').join('\n' + ind).trim() + '\n'
+  }
+
   constructor (options, onComplete) {
     if (typeof options === 'function') {
       onComplete = options
@@ -110,15 +244,20 @@ class Parser extends MiniPass {
     if (onComplete)
       this.on('complete', onComplete)
 
+    this.time = null
+    this.name = options.name || ''
     this.comments = []
     this.results = null
     this.braceLevel = null
     this.parent = options.parent || null
+    this.closingTestPoint = this.parent && options.closingTestPoint
+    this.root = options.parent ? this.parent.root : this
     this.failures = []
     if (options.passes)
       this.passes = []
     this.level = options.level || 0
 
+    this.pointsSeen = new Map()
     this.buffer = ''
     this.bail = !!options.bail
     this.bailingOut = false
@@ -132,6 +271,7 @@ class Parser extends MiniPass {
     this.yamlish = ''
     this.yind = ''
     this.child = null
+    this.previousChild = null
     this.current = null
     this.maybeSubtest = null
     this.extraQueue = []
@@ -152,6 +292,11 @@ class Parser extends MiniPass {
     this.postPlan = false
   }
 
+  get fullname () {
+    return ((this.parent ? this.parent.fullname + ' ' : '') +
+      (this.name || '')).trim()
+  }
+
   tapError (error, line) {
     if (line)
       this.emit('line', line)
@@ -166,15 +311,21 @@ class Parser extends MiniPass {
   }
 
   parseTestPoint (testPoint, line) {
-    this.emitResult()
+    // need to hold off on this when we have a child so we can
+    // associate the closing test point with the test.
+    if (!this.child)
+      this.emitResult()
+
     if (this.bailedOut)
       return
 
-    this.emit('line', line)
+    const resId = testPoint[2]
+
     const res = new Result(testPoint, this.count)
-    if (this.planStart !== -1) {
-      const lessThanStart = +res.id < this.planStart
-      const greaterThanEnd = +res.id > this.planEnd
+
+    if (resId && this.planStart !== -1) {
+      const lessThanStart = res.id < this.planStart
+      const greaterThanEnd = res.id > this.planEnd
       if (lessThanStart || greaterThanEnd) {
         if (lessThanStart)
           res.tapError = 'id less than plan start'
@@ -185,12 +336,25 @@ class Parser extends MiniPass {
       }
     }
 
-    if (res.id) {
-      if (!this.first || res.id < this.first)
-        this.first = res.id
-      if (!this.last || res.id > this.last)
-        this.last = res.id
+    if (resId && this.pointsSeen.has(res.id)) {
+      res.tapError = 'test point id ' + resId + ' appears multiple times'
+      res.previous = this.pointsSeen.get(res.id)
+      this.tapError(res)
+    } else if (resId) {
+      this.pointsSeen.set(res.id, res)
     }
+
+    if (this.child) {
+      if (!this.child.closingTestPoint)
+        this.child.closingTestPoint = res
+      this.emitResult()
+      // can only bail out here in the case of a child with broken diags
+      // anything else would have bailed out already.
+      if (this.bailedOut)
+        return
+    }
+
+    this.emit('line', line)
 
     if (!res.skip && !res.todo)
       this.ok = this.ok && res.ok
@@ -223,7 +387,15 @@ class Parser extends MiniPass {
           this.emit('line', line)
       })
 
-    if (this.current || this.extraQueue.length)
+    this.emitExtra(data)
+  }
+
+  emitExtra (data, fromChild) {
+    if (this.parent)
+      this.parent.emitExtra(
+        data.replace(/\n$/, '').replace(/^/gm, '    ') + '\n', true
+      )
+    else if (!fromChild && (this.current || this.extraQueue.length))
       this.extraQueue.push(['extra', data])
     else
       this.emit('extra', data)
@@ -251,10 +423,7 @@ class Parser extends MiniPass {
       if (this.strict)
         this.tapError({
           tapError: 'plan end cannot be less than plan start',
-          plan: {
-            start: start,
-            end: end
-          }
+          plan: { start, end },
         }, line)
       else
         this.nonTap(line)
@@ -271,8 +440,21 @@ class Parser extends MiniPass {
     // Plans MUST be either at the beginning or the very end.  We treat
     // plans like '1..0' the same, since they indicate that no tests
     // will be coming.
-    if (this.count !== 0 || this.planEnd === 0)
+    if (this.count !== 0 || this.planEnd === 0) {
+      const seen = new Set()
+      for (const [id, res] of this.pointsSeen.entries()) {
+        const tapError = id < start ? 'id less than plan start'
+          : id > end ? 'id greater than plan end'
+          : null
+        if (tapError) {
+          seen.add(tapError)
+          res.tapError = tapError
+          res.plan = { start, end }
+          this.tapError(res)
+        }
+      }
       this.postPlan = true
+    }
 
     this.emit('line', line)
     this.emit('plan', p)
@@ -307,7 +489,7 @@ class Parser extends MiniPass {
 
     let diags
     try {
-      diags = yaml.safeLoad(yamlish)
+      diags = yaml.parse(yamlish)
     } catch (er) {
       this.nonTap(this.yind + '---\n' + yamlish + this.yind + '...\n', true)
       return
@@ -323,7 +505,7 @@ class Parser extends MiniPass {
       return
 
     if (typeof encoding === 'string' && encoding !== 'utf8')
-      chunk = new Buffer(chunk, encoding)
+      chunk = Buffer.from(chunk, encoding)
 
     if (Buffer.isBuffer(chunk))
       chunk += ''
@@ -339,7 +521,7 @@ class Parser extends MiniPass {
       if (!match)
         break
 
-      this.buffer = this.buffer.substr(match[0].length)
+      this.buffer = this.buffer.substring(match[0].length)
       this.parse(match[0])
     } while (this.buffer.length)
 
@@ -402,17 +584,11 @@ class Parser extends MiniPass {
       this.tapError('incorrect number of tests')
     }
 
-    if (this.ok && !skipAll && this.first !== this.planStart) {
-      this.tapError('first test id does not match plan start')
-    }
-
-    if (this.ok && !skipAll && this.last !== this.planEnd) {
-      this.tapError('last test id does not match plan end')
-    }
-
     this.emitComplete(skipAll)
     if (cb)
       process.nextTick(cb)
+
+    return this
   }
 
   emitComplete (skipAll) {
@@ -514,6 +690,9 @@ class Parser extends MiniPass {
 
   endChild () {
     if (this.child && (!this.bailingOut || this.child.count)) {
+      if (this.child.closingTestPoint)
+        this.child.time = this.child.closingTestPoint.time || null
+      this.previousChild = this.child
       this.child.end()
       this.child = null
     }
@@ -551,13 +730,13 @@ class Parser extends MiniPass {
     if (res.todo)
       this.todo++
 
-    this.emit('assert', res)
+    this.emitAssert(res)
     if (this.bail && !res.ok && !res.todo && !res.skip && !this.bailingOut) {
       this.maybeChild = null
       const ind = new Array(this.level + 1).join('    ')
       let p
       for (p = this; p.parent; p = p.parent);
-      const bailName = res.name ? ' # ' + res.name : ''
+      const bailName = res.name ? ' ' + res.name : ''
       p.parse(ind + 'Bail out!' + bailName + '\n')
     }
     this.clearExtraQueue()
@@ -589,6 +768,7 @@ class Parser extends MiniPass {
       parent: this,
       level: this.level + 1,
       buffered: maybeBuffered,
+      closingTestPoint: maybeBuffered && this.current,
       preserveWhitespace: this.preserveWhitespace,
       omitVersion: true,
       strict: this.strict
@@ -608,7 +788,7 @@ class Parser extends MiniPass {
     // Canonicalize the parsing result of any kind of subtest
     // if it's a buffered subtest or a non-indented Subtest directive,
     // then synthetically emit the Subtest comment
-    line = line.substr(4)
+    line = line.substring(4)
     let subtestComment
     if (indentStream) {
       subtestComment = line
@@ -620,7 +800,7 @@ class Parser extends MiniPass {
     }
 
     this.maybeChild = null
-    this.child.name = subtestComment.substr('# Subtest: '.length).trim()
+    this.child.name = subtestComment.substring('# Subtest: '.length).trim()
 
     // at some point, we may wish to move 100% to preferring
     // the Subtest comment on the parent level.  If so, uncomment
@@ -646,7 +826,7 @@ class Parser extends MiniPass {
     let dump
     if (extra && Object.keys(extra).length) {
       try {
-        dump = yaml.safeDump(extra).trimRight()
+        dump = yaml.stringify(extra).trimRight()
       } catch (er) {}
     }
 
@@ -655,6 +835,7 @@ class Parser extends MiniPass {
       y = '  ---\n  ' + dump.split('\n').join('\n  ') + '\n  ...\n'
     else
       y = '\n'
+
     let n = (this.count || 0) + 1
     if (this.current)
       n += 1
@@ -677,6 +858,36 @@ class Parser extends MiniPass {
     this.end()
   }
 
+  emitAssert (res) {
+    res.fullname = this.fullname
+
+    this.emit('assert', res)
+
+    // see if we need to surface to the top level
+    if (this.child || this.previousChild) {
+      const c = this.child || this.previousChild
+      this.previousChild = null
+      if (res.name === c.name &&
+          res.ok === c.results.ok &&
+          c.results.count &&
+          !res.todo && !res.skip) {
+        // just procedural, ignore it
+        return
+      }
+    }
+
+    // surface result to the top level parser
+    this.root.emit('result', res)
+    if (res.skip)
+      this.root.emit('skip', res)
+    else if (res.todo)
+      this.root.emit('todo', res)
+    else if (!res.ok)
+      this.root.emit('fail', res)
+    else
+      this.root.emit('pass', res)
+  }
+
   emitComment (line, skipLine, noDuplicate) {
     if (line.trim().charAt(0) !== '#')
       line = '# ' + line
@@ -688,6 +899,10 @@ class Parser extends MiniPass {
       return
 
     this.comments.push(line)
+    const dir = parseDirective(line.replace(/^\s*#\s*/, '').trim())
+    if (dir[0] === 'time' && typeof dir[1] === 'number')
+      this.time = dir[1]
+
     if (this.current || this.extraQueue.length) {
       // no way to get here with skipLine being true
       this.extraQueue.push(['line', line])
@@ -761,6 +976,7 @@ class Parser extends MiniPass {
 
     // buffered subtest with diagnostics
     if (this.current && line === '{\n' &&
+        this.current.diag &&
         !this.current.buffered &&
         !this.child) {
       this.emit('line', line)
@@ -803,7 +1019,7 @@ class Parser extends MiniPass {
 
     // ok, now it's maybe a thing
     if (type[0] === 'bailout') {
-      this.bailout(type[1][1].trim(), false)
+      this.bailout(unesc(type[1][1].trim()), false)
       return
     }
 
@@ -821,7 +1037,7 @@ class Parser extends MiniPass {
 
     if (type[0] === 'plan') {
       const plan = type[1]
-      this.plan(+plan[1], +plan[2], (plan[3] || '').trim(), line)
+      this.plan(+plan[1], +plan[2], unesc((plan[3] || '')).trim(), line)
       return
     }
 
@@ -856,8 +1072,8 @@ class Parser extends MiniPass {
 
   parseIndent (line, indent) {
     // still belongs to the child, so pass it along.
-    if (this.child && line.substr(0, 4) === '    ') {
-      line = line.substr(4)
+    if (this.child && line.substring(0, 4) === '    ') {
+      line = line.substring(4)
       this.child.write(line)
       return
     }
@@ -896,7 +1112,7 @@ class Parser extends MiniPass {
     // We may have already seen an unindented Subtest directive, or
     // a test point that ended in { indicating a buffered subtest
     // Child tests are always indented 4 spaces.
-    if (line.substr(0, 4) === '    ') {
+    if (line.substring(0, 4) === '    ') {
       if (this.maybeChild ||
           this.current && this.current.buffered ||
           lineTypes.subtestIndent.test(line)) {
@@ -945,6 +1161,18 @@ class Parser extends MiniPass {
   }
 }
 
+// turn \ into \\ and # into \#, for stringifying back to TAP
+const esc = str => str
+  .replace(/\\/g, '\\\\')
+  .replace(/#/g, '\\#')
+  .trim()
+
+const unesc = str => str
+  .replace(/(\\\\)/g, '\u0000')
+  .replace(/\\#/g, '#')
+  .replace(/\u0000/g, '\\')
+  .trim()
+
 class FinalResults {
   constructor (skipAll, self) {
     this.ok = self.ok
@@ -956,6 +1184,7 @@ class FinalResults {
     this.skip = skipAll ? self.count : self.skip || 0
     this.plan = new FinalPlan(skipAll, self)
     this.failures = self.failures
+    this.time = self.time
     if (self.passes)
       this.passes = self.passes
   }
