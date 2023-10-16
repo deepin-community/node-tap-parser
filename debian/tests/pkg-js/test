@@ -1,1 +1,1 @@
-tap test/*.js
+TAP_SNAPSHOT=1 tap -J -R tap --timeout=120 --no-cov

@@ -2,20 +2,25 @@ Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: tap-parser
 Upstream-Contact: https://github.com/substack/tap-parser/issues
 Source: https://github.com/substack/tap-parser
-Comment: repackaded due to events-to-array
 
 Files: *
-Copyright: 2012-2016 James Halliday <mail@substack.net> (https://substack.net)
- 2016-2017 Isaac Z. Schlueter and Contributors
+Copyright: 2012-2022 James Halliday <mail@substack.net> (https://substack.net)
+ 2012-2022 Isaac Z. Schlueter and Contributors
 License: Expat
 
 Files: debian/*
 Copyright: 2016 Jérémy Lal <kapouer@melix.org>
  2017 Bastien Roucariès <rouca@debian.org>
+ 2022 Yadd <yadd@debian.org>
 License: Expat
 
-Files: module-events-to-array/*
-Copyright: 2015-2017 Isaac Z. Schlueter and Contributors
+Files: debian/yaml/*
+Copyright: Eemeli Aro <eemeli@gmail.com>
+License: ISC
+
+Files: events-to-array/*
+ tap-yaml/*
+Copyright: Isaac Z. Schlueter and Contributors
 License: ISC
 Source: https://github.com/isaacs/events-to-array
 Comment: tap-parser is the only reverse depends of events-to-array so

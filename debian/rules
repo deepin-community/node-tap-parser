@@ -2,42 +2,32 @@
 # -*- makefile -*-
 
 # Uncomment this to turn on verbose mode.
-export DH_VERBOSE=1
-
-define newline =
-
-
-endef
-define space =
-endef
-
-
-
-COMPONENTS=$(subst $(newline),$(space),$(shell set -e;cd debian/components && (find . -type d -printf "%f\n" | sed '/^[.]$$/d' )))
-COMPONENTS_FILES=$(foreach component,$(COMPONENTS),debian/components/$(component)/$(1))
-COPYRIGHT_COMPONENTS_FILES=$(call COMPONENTS_FILES,copyright)
-INSTALL_COMPONENTS_FILES=$(call COMPONENTS_FILES,install)
-MODULES_COMPONENTS=$(foreach component,$(COMPONENTS),$(shell echo $(component) | sed 's/^module[-]//g'))
+#export DH_VERBOSE=1
 
 %:
-	dh $@ --with nodejs
+	dh $@
+
+override_dh_auto_test:
+	# No test during build to avoid circular dependency to node-tap
 
 override_dh_fixperms:
 	dh_fixperms
 	chmod a+x debian/node-tap-parser/usr/share/nodejs/tap-parser/bin/cmd.js
 
+override_dh_install:
+	dh_install
+	mkdir debian/node-tap-parser/usr/share/nodejs/tap-yaml/node_modules
+	mv debian/node-tap-parser/usr/share/nodejs/yaml debian/node-tap-parser/usr/share/nodejs/tap-yaml/node_modules/
+
 override_dh_installdocs:
 	dh_installdocs
-	set -e ; for c in $(MODULES_COMPONENTS); do \
-	    mkdir -p "debian/node-tap-parser/usr/share/doc/node-$$c"; \
-	    ln -s ../node-tap-parser/copyright debian/node-tap-parser/usr/share/doc/node-$$c/copyright; \
-	    ln -s ../node-tap-parser/changelog.Debian.gz debian/node-tap-parser/usr/share/doc/node-$$c/changelog.Debian.gz; \
-	done
-	cp -f module-events-to-array/README.md debian/node-tap-parser/usr/share/doc/node-events-to-array/
+	dh_nodejs_autodocs
+	rm -rf debian/node-tap-parser/usr/share/doc/node-yaml
 
 ifeq (,$(filter nodoc,$(DEB_BUILD_OPTIONS) $(DEB_BUILD_PROFILES)))
 override_dh_installman:
 	help2man --no-discard-stderr -N -n "Test-Anything-Protocol parser for Node.js" ./bin/cmd.js -o debian/tap-parser.1
+	perl -i -pe 's/cmd.js/tap-parser/g;s/CMD.JS/TAP-PARSER/g' debian/tap-parser.1
 	dh_installman
 else
 override_dh_installman:
@@ -57,21 +47,3 @@ override_dh_installexamples:
 	@echo 'Skip generating examples                                  '
 	@echo '**********************************************************'
 endif
-
-override_dh_auto_clean:
-	rm -f debian/tap-parser.1
-	rm -rf node_modules
-
-debian/copyright: debian/components/copyright $(COPYRIGHT_COMPONENTS_FILES) debian/components/copyright.license
-	cat debian/components/copyright $(COPYRIGHT_COMPONENTS_FILES) debian/components/copyright.license > debian/copyright
-
-debian/install: debian/components/install $(INSTALL_COMPONENTS_FILES)
-	cp -f debian/components/install debian/install
-	set -e; \
-	for c in $(COMPONENTS); do \
-			sed -e "/^./ s,^,$$c/,g" < debian/components/$$c/install >> debian/install; \
-	done;
-
-maint_rule: debian/copyright debian/install
-	$(info $(COPYRIGHT_COMPONENTS_FILES))
-	$(info run maint rules)

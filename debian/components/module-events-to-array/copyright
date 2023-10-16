@@ -1,7 +1,0 @@
-Files: module-events-to-array/*
-Copyright: 2015-2017 Isaac Z. Schlueter and Contributors
-License: ISC
-Source: https://github.com/isaacs/events-to-array
-Comment: tap-parser is the only reverse depends of events-to-array so
- bundle here
-
