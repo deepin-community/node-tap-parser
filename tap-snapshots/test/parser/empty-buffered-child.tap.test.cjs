@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser.js TAP empty-buffered-child.tap > output bail=false 1`] = `
+exports[`test/parser.ts TAP empty-buffered-child.tap > output bail=false 1`] = `
 Array [
   Array [
     "line",
@@ -47,6 +47,9 @@ Array [
           "todo": 0,
         },
       ],
+      Array [
+        "close",
+      ],
     ],
   ],
   Array [
@@ -57,27 +60,51 @@ Array [
     "assert",
     Result {
       "buffered": true,
+      "diag": null,
       "fullname": "",
+      "id": 0,
       "name": "child",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "result",
     Result {
       "buffered": true,
+      "diag": null,
       "fullname": "",
+      "id": 0,
       "name": "child",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
       "buffered": true,
+      "diag": null,
       "fullname": "",
+      "id": 0,
       "name": "child",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -86,7 +113,8 @@ Array [
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 1,
       "start": 1,
     },
@@ -115,7 +143,7 @@ Array [
 ]
 `
 
-exports[`test/parser.js TAP empty-buffered-child.tap > output bail=true 1`] = `
+exports[`test/parser.ts TAP empty-buffered-child.tap > output bail=true 1`] = `
 Array [
   Array [
     "line",
@@ -157,6 +185,9 @@ Array [
           "todo": 0,
         },
       ],
+      Array [
+        "close",
+      ],
     ],
   ],
   Array [
@@ -167,27 +198,51 @@ Array [
     "assert",
     Result {
       "buffered": true,
+      "diag": null,
       "fullname": "",
+      "id": 0,
       "name": "child",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "result",
     Result {
       "buffered": true,
+      "diag": null,
       "fullname": "",
+      "id": 0,
       "name": "child",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
       "buffered": true,
+      "diag": null,
       "fullname": "",
+      "id": 0,
       "name": "child",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -196,7 +251,8 @@ Array [
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 1,
       "start": 1,
     },

@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser-stringify.js TAP subtest-unfinished.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP subtest-unfinished.tap bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -13,7 +13,8 @@ Array [
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 1,
       "start": 1,
     },
@@ -21,8 +22,18 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
+      "id": 0,
+      "name": "",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -34,7 +45,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -42,8 +54,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "unfinished",
+          "id": 0,
+          "name": "",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -66,6 +88,12 @@ Array [
           "time": null,
           "todo": 0,
         },
+      ],
+      Array [
+        "finish",
+      ],
+      Array [
+        "close",
       ],
     ],
   ],
@@ -90,10 +118,16 @@ Array [
       "todo": 0,
     },
   ],
+  Array [
+    "finish",
+  ],
+  Array [
+    "close",
+  ],
 ]
 `
 
-exports[`test/parser-stringify.js TAP subtest-unfinished.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP subtest-unfinished.tap bail > stringified 1`] = `
 TAP version 13
 1..1
 ok
@@ -103,17 +137,16 @@ ok
 
 `
 
-exports[`test/parser-stringify.js TAP subtest-unfinished.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP subtest-unfinished.tap bail > stringified flat 1`] = `
 TAP version 13
-1..1
-ok
+1..0
+ok 1
 # Subtest: unfinished
-    1..1
-    ok
+ok 2 - unfinished
 
 `
 
-exports[`test/parser-stringify.js TAP subtest-unfinished.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP subtest-unfinished.tap default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -121,7 +154,8 @@ Array [
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 1,
       "start": 1,
     },
@@ -129,8 +163,18 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
+      "id": 0,
+      "name": "",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -142,7 +186,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -150,8 +195,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "unfinished",
+          "id": 0,
+          "name": "",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -174,6 +229,12 @@ Array [
           "time": null,
           "todo": 0,
         },
+      ],
+      Array [
+        "finish",
+      ],
+      Array [
+        "close",
       ],
     ],
   ],
@@ -198,10 +259,93 @@ Array [
       "todo": 0,
     },
   ],
+  Array [
+    "finish",
+  ],
+  Array [
+    "close",
+  ],
 ]
 `
 
-exports[`test/parser-stringify.js TAP subtest-unfinished.tap default settings > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP subtest-unfinished.tap default settings > parsed flat 1`] = `
+Array [
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "assert",
+    Result {
+      "buffered": false,
+      "diag": null,
+      "fullname": "",
+      "id": 1,
+      "name": "",
+      "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "buffered": false,
+      "diag": null,
+      "fullname": "",
+      "id": 2,
+      "name": "unfinished",
+      "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
+    },
+  ],
+  Array [
+    "plan",
+    Object {
+      "end": 2,
+      "start": 1,
+    },
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 1,
+      "fail": 0,
+      "failures": Array [],
+      "ok": true,
+      "pass": 1,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 1,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 1,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+  Array [
+    "finish",
+  ],
+  Array [
+    "close",
+  ],
+]
+`
+
+exports[`test/parse-stringify.ts TAP subtest-unfinished.tap default settings > stringified 1`] = `
 TAP version 13
 1..1
 ok
@@ -211,17 +355,16 @@ ok
 
 `
 
-exports[`test/parser-stringify.js TAP subtest-unfinished.tap default settings > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP subtest-unfinished.tap default settings > stringified flat 1`] = `
 TAP version 13
-1..1
-ok
+1..0
+ok 1
 # Subtest: unfinished
-    1..1
-    ok
+ok 2 - unfinished
 
 `
 
-exports[`test/parser-stringify.js TAP subtest-unfinished.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP subtest-unfinished.tap strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -229,7 +372,8 @@ Array [
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 1,
       "start": 1,
     },
@@ -237,8 +381,18 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
+      "id": 0,
+      "name": "",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -250,7 +404,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -258,8 +413,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "unfinished",
+          "id": 0,
+          "name": "",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -282,6 +447,12 @@ Array [
           "time": null,
           "todo": 0,
         },
+      ],
+      Array [
+        "finish",
+      ],
+      Array [
+        "close",
       ],
     ],
   ],
@@ -306,10 +477,16 @@ Array [
       "todo": 0,
     },
   ],
+  Array [
+    "finish",
+  ],
+  Array [
+    "close",
+  ],
 ]
 `
 
-exports[`test/parser-stringify.js TAP subtest-unfinished.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP subtest-unfinished.tap strict > stringified 1`] = `
 TAP version 13
 1..1
 ok
@@ -319,17 +496,16 @@ ok
 
 `
 
-exports[`test/parser-stringify.js TAP subtest-unfinished.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP subtest-unfinished.tap strict > stringified flat 1`] = `
 TAP version 13
-1..1
-ok
+1..0
+ok 1
 # Subtest: unfinished
-    1..1
-    ok
+ok 2 - unfinished
 
 `
 
-exports[`test/parser-stringify.js TAP subtest-unfinished.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP subtest-unfinished.tap strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -337,7 +513,8 @@ Array [
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 1,
       "start": 1,
     },
@@ -345,8 +522,18 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
+      "id": 0,
+      "name": "",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -358,7 +545,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -366,8 +554,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "unfinished",
+          "id": 0,
+          "name": "",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -390,6 +588,12 @@ Array [
           "time": null,
           "todo": 0,
         },
+      ],
+      Array [
+        "finish",
+      ],
+      Array [
+        "close",
       ],
     ],
   ],
@@ -414,10 +618,16 @@ Array [
       "todo": 0,
     },
   ],
+  Array [
+    "finish",
+  ],
+  Array [
+    "close",
+  ],
 ]
 `
 
-exports[`test/parser-stringify.js TAP subtest-unfinished.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP subtest-unfinished.tap strictBail > stringified 1`] = `
 TAP version 13
 1..1
 ok
@@ -427,12 +637,11 @@ ok
 
 `
 
-exports[`test/parser-stringify.js TAP subtest-unfinished.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP subtest-unfinished.tap strictBail > stringified flat 1`] = `
 TAP version 13
-1..1
-ok
+1..0
+ok 1
 # Subtest: unfinished
-    1..1
-    ok
+ok 2 - unfinished
 
 `

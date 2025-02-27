@@ -1,0 +1,21 @@
+From: =?utf-8?q?Bastien_Roucari=C3=A8s?= <rouca@debian.org>
+Date: Wed, 31 Jul 2024 08:40:10 +0000
+Subject: Export package.json
+
+Forwarded: not-needed
+---
+ package.json | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/package.json b/package.json
+index 1484186..70262cb 100644
+--- a/package.json
++++ b/package.json
+@@ -6,6 +6,7 @@
+   "types": "dist/cjs/index.d.ts",
+   "module": "dist/mjs/index.js",
+   "exports": {
++     "./package.json": "./package.json",
+     ".": {
+       "import": {
+         "types": "./dist/mjs/index.d.ts",

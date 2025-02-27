@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser-stringify.js TAP pragma-mid-yaml.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP pragma-mid-yaml.tap bail > parsed 1`] = `
 Array [
   Array [
     "pragma",
@@ -14,7 +14,8 @@ Array [
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 1,
       "start": 1,
     },
@@ -22,10 +23,18 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "some yaml",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -70,10 +79,16 @@ Array [
       "todo": 0,
     },
   ],
+  Array [
+    "finish",
+  ],
+  Array [
+    "close",
+  ],
 ]
 `
 
-exports[`test/parser-stringify.js TAP pragma-mid-yaml.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP pragma-mid-yaml.tap bail > stringified 1`] = `
 pragma +foo
 1..1
 ok 1 - some yaml
@@ -85,9 +100,9 @@ pragma +foo
 
 `
 
-exports[`test/parser-stringify.js TAP pragma-mid-yaml.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP pragma-mid-yaml.tap bail > stringified flat 1`] = `
 pragma +foo
-1..1
+1..0
 ok 1 - some yaml
   ---
   ok: true
@@ -97,7 +112,7 @@ pragma +foo
 
 `
 
-exports[`test/parser-stringify.js TAP pragma-mid-yaml.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP pragma-mid-yaml.tap default settings > parsed 1`] = `
 Array [
   Array [
     "pragma",
@@ -106,7 +121,8 @@ Array [
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 1,
       "start": 1,
     },
@@ -114,10 +130,18 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "some yaml",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -162,39 +186,59 @@ Array [
       "todo": 0,
     },
   ],
+  Array [
+    "finish",
+  ],
+  Array [
+    "close",
+  ],
 ]
 `
 
-exports[`test/parser-stringify.js TAP pragma-mid-yaml.tap default settings > stringified 1`] = `
-pragma +foo
-1..1
-ok 1 - some yaml
-  ---
-  ok: true
-pragma +foo
-  name: some yaml
-  ...
-
-`
-
-exports[`test/parser-stringify.js TAP pragma-mid-yaml.tap default settings > stringified flat 1`] = `
-pragma +foo
-1..1
-ok 1 - some yaml
-  ---
-  ok: true
-pragma +foo
-  name: some yaml
-  ...
-
-`
-
-exports[`test/parser-stringify.js TAP pragma-mid-yaml.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP pragma-mid-yaml.tap default settings > parsed flat 1`] = `
 Array [
   Array [
     "pragma",
     "foo",
     true,
+  ],
+  Array [
+    "assert",
+    Result {
+      "buffered": false,
+      "diag": null,
+      "fullname": "",
+      "id": 1,
+      "name": "some yaml",
+      "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
+    },
+  ],
+  Array [
+    "extra",
+    String(
+        ---
+        ok: true
+      
+    ),
+  ],
+  Array [
+    "pragma",
+    "foo",
+    true,
+  ],
+  Array [
+    "extra",
+    "  name: some yaml\\n",
+  ],
+  Array [
+    "extra",
+    "  ...\\n",
   ],
   Array [
     "plan",
@@ -204,12 +248,89 @@ Array [
     },
   ],
   Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 1,
+      "fail": 0,
+      "failures": Array [],
+      "ok": true,
+      "pass": 1,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 1,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 1,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+  Array [
+    "finish",
+  ],
+  Array [
+    "close",
+  ],
+]
+`
+
+exports[`test/parse-stringify.ts TAP pragma-mid-yaml.tap default settings > stringified 1`] = `
+pragma +foo
+1..1
+ok 1 - some yaml
+  ---
+  ok: true
+pragma +foo
+  name: some yaml
+  ...
+
+`
+
+exports[`test/parse-stringify.ts TAP pragma-mid-yaml.tap default settings > stringified flat 1`] = `
+pragma +foo
+1..0
+ok 1 - some yaml
+  ---
+  ok: true
+pragma +foo
+  name: some yaml
+  ...
+
+`
+
+exports[`test/parse-stringify.ts TAP pragma-mid-yaml.tap strict > parsed 1`] = `
+Array [
+  Array [
+    "pragma",
+    "foo",
+    true,
+  ],
+  Array [
+    "plan",
+    Plan {
+      "comment": "",
+      "end": 1,
+      "start": 1,
+    },
+  ],
+  Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "some yaml",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -275,10 +396,16 @@ Array [
       "todo": 0,
     },
   ],
+  Array [
+    "finish",
+  ],
+  Array [
+    "close",
+  ],
 ]
 `
 
-exports[`test/parser-stringify.js TAP pragma-mid-yaml.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP pragma-mid-yaml.tap strict > stringified 1`] = `
 pragma +foo
 1..1
 ok 1 - some yaml
@@ -291,9 +418,9 @@ pragma +foo
 
 `
 
-exports[`test/parser-stringify.js TAP pragma-mid-yaml.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP pragma-mid-yaml.tap strict > stringified flat 1`] = `
 pragma +foo
-1..1
+1..0
 ok 1 - some yaml
   ---
   ok: true
@@ -304,7 +431,7 @@ pragma +foo
 
 `
 
-exports[`test/parser-stringify.js TAP pragma-mid-yaml.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP pragma-mid-yaml.tap strictBail > parsed 1`] = `
 Array [
   Array [
     "pragma",
@@ -313,7 +440,8 @@ Array [
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 1,
       "start": 1,
     },
@@ -321,10 +449,18 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "some yaml",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -390,10 +526,16 @@ Array [
       "todo": 0,
     },
   ],
+  Array [
+    "finish",
+  ],
+  Array [
+    "close",
+  ],
 ]
 `
 
-exports[`test/parser-stringify.js TAP pragma-mid-yaml.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP pragma-mid-yaml.tap strictBail > stringified 1`] = `
 pragma +foo
 1..1
 ok 1 - some yaml
@@ -406,9 +548,9 @@ pragma +foo
 
 `
 
-exports[`test/parser-stringify.js TAP pragma-mid-yaml.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP pragma-mid-yaml.tap strictBail > stringified flat 1`] = `
 pragma +foo
-1..1
+1..0
 ok 1 - some yaml
   ---
   ok: true

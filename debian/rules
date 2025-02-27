@@ -7,22 +7,16 @@
 %:
 	dh $@
 
-override_dh_auto_test:
-	# No test during build to avoid circular dependency to node-tap
+#override_dh_auto_test:
+#	# No test during build to avoid circular dependency to node-tap
 
 override_dh_fixperms:
 	dh_fixperms
 	chmod a+x debian/node-tap-parser/usr/share/nodejs/tap-parser/bin/cmd.js
 
-override_dh_install:
-	dh_install
-	mkdir debian/node-tap-parser/usr/share/nodejs/tap-yaml/node_modules
-	mv debian/node-tap-parser/usr/share/nodejs/yaml debian/node-tap-parser/usr/share/nodejs/tap-yaml/node_modules/
-
 override_dh_installdocs:
 	dh_installdocs
 	dh_nodejs_autodocs
-	rm -rf debian/node-tap-parser/usr/share/doc/node-yaml
 
 ifeq (,$(filter nodoc,$(DEB_BUILD_OPTIONS) $(DEB_BUILD_PROFILES)))
 override_dh_installman:

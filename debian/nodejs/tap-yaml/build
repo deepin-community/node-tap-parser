@@ -1,0 +1,3 @@
+tsc -p tsconfig.json
+tsc -p tsconfig-esm.json
+sh -e scripts/fixup.sh

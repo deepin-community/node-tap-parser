@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser.js TAP version-in-yaml.tap > output bail=false 1`] = `
+exports[`test/parser.ts TAP version-in-yaml.tap > output bail=false 1`] = `
 Array [
   Array [
     "line",
@@ -57,6 +57,7 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
           "diag": Object {
             "version": String(
               
@@ -64,8 +65,15 @@ Array [
             ),
           },
           "fullname": "child indented",
+          "id": 0,
           "name": "some yaml",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -74,7 +82,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -95,6 +104,7 @@ Array [
           "fail": 1,
           "failures": Array [
             Result {
+              "buffered": false,
               "diag": Object {
                 "version": String(
                   
@@ -102,8 +112,15 @@ Array [
                 ),
               },
               "fullname": "child indented",
+              "id": 0,
               "name": "some yaml",
               "ok": false,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           "ok": false,
@@ -119,6 +136,9 @@ Array [
           "time": null,
           "todo": 0,
         },
+      ],
+      Array [
+        "close",
       ],
     ],
   ],
@@ -153,6 +173,7 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
       "diag": Object {
         "version": String(
           
@@ -160,13 +181,21 @@ Array [
         ),
       },
       "fullname": "child indented",
+      "id": 0,
       "name": "some yaml",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "fail",
     Result {
+      "buffered": false,
       "diag": Object {
         "version": String(
           
@@ -174,8 +203,15 @@ Array [
         ),
       },
       "fullname": "child indented",
+      "id": 0,
       "name": "some yaml",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -193,10 +229,18 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "child indented",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -241,6 +285,7 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
           "diag": Object {
             "version": String(
               
@@ -248,8 +293,15 @@ Array [
             ),
           },
           "fullname": "child unindented",
+          "id": 0,
           "name": "some yaml",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -258,7 +310,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -279,6 +332,7 @@ Array [
           "fail": 1,
           "failures": Array [
             Result {
+              "buffered": false,
               "diag": Object {
                 "version": String(
                   
@@ -286,8 +340,15 @@ Array [
                 ),
               },
               "fullname": "child unindented",
+              "id": 0,
               "name": "some yaml",
               "ok": false,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           "ok": false,
@@ -303,6 +364,9 @@ Array [
           "time": null,
           "todo": 0,
         },
+      ],
+      Array [
+        "close",
       ],
     ],
   ],
@@ -337,6 +401,7 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
       "diag": Object {
         "version": String(
           
@@ -344,13 +409,21 @@ Array [
         ),
       },
       "fullname": "child unindented",
+      "id": 0,
       "name": "some yaml",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "fail",
     Result {
+      "buffered": false,
       "diag": Object {
         "version": String(
           
@@ -358,8 +431,15 @@ Array [
         ),
       },
       "fullname": "child unindented",
+      "id": 0,
       "name": "some yaml",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -377,10 +457,18 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 2,
       "name": "child unindented",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -425,6 +513,7 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
           "diag": Object {
             "version": String(
               
@@ -432,8 +521,15 @@ Array [
             ),
           },
           "fullname": "",
+          "id": 0,
           "name": "some yaml",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -442,7 +538,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -463,6 +560,7 @@ Array [
           "fail": 1,
           "failures": Array [
             Result {
+              "buffered": false,
               "diag": Object {
                 "version": String(
                   
@@ -470,8 +568,15 @@ Array [
                 ),
               },
               "fullname": "",
+              "id": 0,
               "name": "some yaml",
               "ok": false,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           "ok": false,
@@ -487,6 +592,9 @@ Array [
           "time": null,
           "todo": 0,
         },
+      ],
+      Array [
+        "close",
       ],
     ],
   ],
@@ -521,6 +629,7 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
       "diag": Object {
         "version": String(
           
@@ -528,13 +637,21 @@ Array [
         ),
       },
       "fullname": "",
+      "id": 0,
       "name": "some yaml",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "fail",
     Result {
+      "buffered": false,
       "diag": Object {
         "version": String(
           
@@ -542,8 +659,15 @@ Array [
         ),
       },
       "fullname": "",
+      "id": 0,
       "name": "some yaml",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -561,28 +685,52 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 3,
       "name": "child unnamed",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 3,
       "name": "child unnamed",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "fail",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 3,
       "name": "child unnamed",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -627,6 +775,7 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
           "diag": Object {
             "version": String(
               
@@ -634,8 +783,15 @@ Array [
             ),
           },
           "fullname": "child buffered",
+          "id": 0,
           "name": "some yaml",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -644,7 +800,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -665,6 +822,7 @@ Array [
           "fail": 1,
           "failures": Array [
             Result {
+              "buffered": false,
               "diag": Object {
                 "version": String(
                   
@@ -672,8 +830,15 @@ Array [
                 ),
               },
               "fullname": "child buffered",
+              "id": 0,
               "name": "some yaml",
               "ok": false,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           "ok": false,
@@ -689,6 +854,9 @@ Array [
           "time": null,
           "todo": 0,
         },
+      ],
+      Array [
+        "close",
       ],
     ],
   ],
@@ -723,6 +891,7 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
       "diag": Object {
         "version": String(
           
@@ -730,13 +899,21 @@ Array [
         ),
       },
       "fullname": "child buffered",
+      "id": 0,
       "name": "some yaml",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "fail",
     Result {
+      "buffered": false,
       "diag": Object {
         "version": String(
           
@@ -744,8 +921,15 @@ Array [
         ),
       },
       "fullname": "child buffered",
+      "id": 0,
       "name": "some yaml",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -764,10 +948,17 @@ Array [
     "assert",
     Result {
       "buffered": true,
+      "diag": null,
       "fullname": "",
       "id": 4,
       "name": "child buffered",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -776,7 +967,8 @@ Array [
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 4,
       "start": 1,
     },
@@ -797,29 +989,60 @@ Array [
       "fail": 4,
       "failures": Array [
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "",
           "id": 1,
           "name": "child indented",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "",
           "id": 2,
           "name": "child unindented",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "",
           "id": 3,
           "name": "child unnamed",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
         Result {
           "buffered": true,
+          "diag": null,
           "fullname": "",
           "id": 4,
           "name": "child buffered",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       "ok": false,
@@ -839,7 +1062,7 @@ Array [
 ]
 `
 
-exports[`test/parser.js TAP version-in-yaml.tap > output bail=true 1`] = `
+exports[`test/parser.ts TAP version-in-yaml.tap > output bail=true 1`] = `
 Array [
   Array [
     "line",
@@ -891,6 +1114,7 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
           "diag": Object {
             "version": String(
               
@@ -898,8 +1122,15 @@ Array [
             ),
           },
           "fullname": "child indented",
+          "id": 0,
           "name": "some yaml",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -918,6 +1149,7 @@ Array [
           "fail": 1,
           "failures": Array [
             Result {
+              "buffered": false,
               "diag": Object {
                 "version": String(
                   
@@ -925,8 +1157,15 @@ Array [
                 ),
               },
               "fullname": "child indented",
+              "id": 0,
               "name": "some yaml",
               "ok": false,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           "ok": false,
@@ -942,6 +1181,9 @@ Array [
           "time": null,
           "todo": 0,
         },
+      ],
+      Array [
+        "close",
       ],
     ],
   ],
@@ -976,6 +1218,7 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
       "diag": Object {
         "version": String(
           
@@ -983,13 +1226,21 @@ Array [
         ),
       },
       "fullname": "child indented",
+      "id": 0,
       "name": "some yaml",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "fail",
     Result {
+      "buffered": false,
       "diag": Object {
         "version": String(
           
@@ -997,8 +1248,15 @@ Array [
         ),
       },
       "fullname": "child indented",
+      "id": 0,
       "name": "some yaml",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [

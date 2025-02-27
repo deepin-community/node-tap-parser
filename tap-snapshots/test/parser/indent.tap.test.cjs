@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser.js TAP indent.tap > output bail=false 1`] = `
+exports[`test/parser.ts TAP indent.tap > output bail=false 1`] = `
 Array [
   Array [
     "line",
@@ -21,7 +21,8 @@ Array [
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 2,
       "start": 1,
     },
@@ -51,7 +52,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 2,
           "start": 1,
         },
@@ -63,11 +65,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "first",
           "id": 1,
           "name": "true is ok",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
           "time": 1.234,
+          "todo": false,
         },
       ],
       Array [
@@ -77,11 +86,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "first",
           "id": 2,
           "name": "doag is also okay",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
           "time": 1.234,
+          "todo": false,
         },
       ],
       Array [
@@ -105,6 +121,9 @@ Array [
           "todo": 0,
         },
       ],
+      Array [
+        "close",
+      ],
     ],
   ],
   Array [
@@ -118,21 +137,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "first",
       "id": 1,
       "name": "true is ok",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
       "time": 1.234,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "first",
       "id": 1,
       "name": "true is ok",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
       "time": 1.234,
+      "todo": false,
     },
   ],
   Array [
@@ -142,21 +175,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "first",
       "id": 2,
       "name": "doag is also okay",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
       "time": 1.234,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "first",
       "id": 2,
       "name": "doag is also okay",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
       "time": 1.234,
+      "todo": false,
     },
   ],
   Array [
@@ -166,11 +213,18 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "first",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
       "time": 2.589,
+      "todo": false,
     },
   ],
   Array [
@@ -191,11 +245,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "second",
           "id": 1,
           "name": "no plan",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
           "time": 1.001,
+          "todo": false,
         },
       ],
       Array [
@@ -215,7 +276,8 @@ Array [
           ],
           Array [
             "plan",
-            Object {
+            Plan {
+              "comment": "",
               "end": 3,
               "start": 1,
             },
@@ -227,10 +289,18 @@ Array [
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "second this passes",
+              "id": 0,
               "name": "granddaughter",
               "ok": false,
+              "plan": null,
+              "previous": null,
               "skip": "for no raisin",
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           Array [
@@ -260,15 +330,22 @@ Array [
           Array [
             "assert",
             Result {
+              "buffered": false,
               "diag": Object {
                 "it": "is yaml",
                 "ok": 1,
                 "this": "is not tap",
               },
               "fullname": "second this passes",
+              "id": 0,
               "name": "grandson",
               "ok": true,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
               "time": 1001,
+              "todo": false,
             },
           ],
           Array [
@@ -294,9 +371,17 @@ Array [
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "second this passes",
+              "id": 0,
               "name": "grandchild",
               "ok": false,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
               "todo": true,
             },
           ],
@@ -336,6 +421,9 @@ Array [
               "time": 1200,
               "todo": 1,
             },
+          ],
+          Array [
+            "close",
           ],
         ],
       ],
@@ -406,11 +494,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "second",
           "id": 2,
           "name": "this passes",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
           "time": 1200,
+          "todo": false,
         },
       ],
       Array [
@@ -419,7 +514,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 2,
           "start": 1,
         },
@@ -445,6 +541,9 @@ Array [
           "todo": 0,
         },
       ],
+      Array [
+        "close",
+      ],
     ],
   ],
   Array [
@@ -454,21 +553,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "second",
       "id": 1,
       "name": "no plan",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
       "time": 1.001,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "second",
       "id": 1,
       "name": "no plan",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
       "time": 1.001,
+      "todo": false,
     },
   ],
   Array [
@@ -486,19 +599,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "second this passes",
+      "id": 0,
       "name": "granddaughter",
       "ok": false,
+      "plan": null,
+      "previous": null,
       "skip": "for no raisin",
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "skip",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "second this passes",
+      "id": 0,
       "name": "granddaughter",
       "ok": false,
+      "plan": null,
+      "previous": null,
       "skip": "for no raisin",
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -528,29 +657,43 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
       "diag": Object {
         "it": "is yaml",
         "ok": 1,
         "this": "is not tap",
       },
       "fullname": "second this passes",
+      "id": 0,
       "name": "grandson",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
       "time": 1001,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
       "diag": Object {
         "it": "is yaml",
         "ok": 1,
         "this": "is not tap",
       },
       "fullname": "second this passes",
+      "id": 0,
       "name": "grandson",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
       "time": 1001,
+      "todo": false,
     },
   ],
   Array [
@@ -576,18 +719,34 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "second this passes",
+      "id": 0,
       "name": "grandchild",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
       "todo": true,
     },
   ],
   Array [
     "todo",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "second this passes",
+      "id": 0,
       "name": "grandchild",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
       "todo": true,
     },
   ],
@@ -624,11 +783,18 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 2,
       "name": "second",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
       "time": 1.2,
+      "todo": false,
     },
   ],
   Array [
@@ -655,7 +821,7 @@ Array [
 ]
 `
 
-exports[`test/parser.js TAP indent.tap > output bail=true 1`] = `
+exports[`test/parser.ts TAP indent.tap > output bail=true 1`] = `
 Array [
   Array [
     "line",
@@ -671,7 +837,8 @@ Array [
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 2,
       "start": 1,
     },
@@ -701,7 +868,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 2,
           "start": 1,
         },
@@ -713,11 +881,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "first",
           "id": 1,
           "name": "true is ok",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
           "time": 1.234,
+          "todo": false,
         },
       ],
       Array [
@@ -727,11 +902,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "first",
           "id": 2,
           "name": "doag is also okay",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
           "time": 1.234,
+          "todo": false,
         },
       ],
       Array [
@@ -755,6 +937,9 @@ Array [
           "todo": 0,
         },
       ],
+      Array [
+        "close",
+      ],
     ],
   ],
   Array [
@@ -768,21 +953,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "first",
       "id": 1,
       "name": "true is ok",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
       "time": 1.234,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "first",
       "id": 1,
       "name": "true is ok",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
       "time": 1.234,
+      "todo": false,
     },
   ],
   Array [
@@ -792,21 +991,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "first",
       "id": 2,
       "name": "doag is also okay",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
       "time": 1.234,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "first",
       "id": 2,
       "name": "doag is also okay",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
       "time": 1.234,
+      "todo": false,
     },
   ],
   Array [
@@ -816,11 +1029,18 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "first",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
       "time": 2.589,
+      "todo": false,
     },
   ],
   Array [
@@ -841,11 +1061,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "second",
           "id": 1,
           "name": "no plan",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
           "time": 1.001,
+          "todo": false,
         },
       ],
       Array [
@@ -865,7 +1092,8 @@ Array [
           ],
           Array [
             "plan",
-            Object {
+            Plan {
+              "comment": "",
               "end": 3,
               "start": 1,
             },
@@ -877,10 +1105,18 @@ Array [
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "second this passes",
+              "id": 0,
               "name": "granddaughter",
               "ok": false,
+              "plan": null,
+              "previous": null,
               "skip": "for no raisin",
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           Array [
@@ -910,15 +1146,22 @@ Array [
           Array [
             "assert",
             Result {
+              "buffered": false,
               "diag": Object {
                 "it": "is yaml",
                 "ok": 1,
                 "this": "is not tap",
               },
               "fullname": "second this passes",
+              "id": 0,
               "name": "grandson",
               "ok": true,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
               "time": 1001,
+              "todo": false,
             },
           ],
           Array [
@@ -944,9 +1187,17 @@ Array [
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "second this passes",
+              "id": 0,
               "name": "grandchild",
               "ok": false,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
               "todo": true,
             },
           ],
@@ -986,6 +1237,9 @@ Array [
               "time": 1200,
               "todo": 1,
             },
+          ],
+          Array [
+            "close",
           ],
         ],
       ],
@@ -1056,11 +1310,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "second",
           "id": 2,
           "name": "this passes",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
           "time": 1200,
+          "todo": false,
         },
       ],
       Array [
@@ -1069,7 +1330,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 2,
           "start": 1,
         },
@@ -1095,6 +1357,9 @@ Array [
           "todo": 0,
         },
       ],
+      Array [
+        "close",
+      ],
     ],
   ],
   Array [
@@ -1104,21 +1369,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "second",
       "id": 1,
       "name": "no plan",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
       "time": 1.001,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "second",
       "id": 1,
       "name": "no plan",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
       "time": 1.001,
+      "todo": false,
     },
   ],
   Array [
@@ -1136,19 +1415,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "second this passes",
+      "id": 0,
       "name": "granddaughter",
       "ok": false,
+      "plan": null,
+      "previous": null,
       "skip": "for no raisin",
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "skip",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "second this passes",
+      "id": 0,
       "name": "granddaughter",
       "ok": false,
+      "plan": null,
+      "previous": null,
       "skip": "for no raisin",
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -1178,29 +1473,43 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
       "diag": Object {
         "it": "is yaml",
         "ok": 1,
         "this": "is not tap",
       },
       "fullname": "second this passes",
+      "id": 0,
       "name": "grandson",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
       "time": 1001,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
       "diag": Object {
         "it": "is yaml",
         "ok": 1,
         "this": "is not tap",
       },
       "fullname": "second this passes",
+      "id": 0,
       "name": "grandson",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
       "time": 1001,
+      "todo": false,
     },
   ],
   Array [
@@ -1226,18 +1535,34 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "second this passes",
+      "id": 0,
       "name": "grandchild",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
       "todo": true,
     },
   ],
   Array [
     "todo",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "second this passes",
+      "id": 0,
       "name": "grandchild",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
       "todo": true,
     },
   ],
@@ -1274,11 +1599,18 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 2,
       "name": "second",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
       "time": 1.2,
+      "todo": false,
     },
   ],
   Array [

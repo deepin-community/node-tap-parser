@@ -6,12 +6,16 @@ Testsuite: autopkgtest-pkg-nodejs
 Priority: optional
 Build-Depends: debhelper-compat (= 13)
  , dh-sequence-nodejs
+ , dh-nodejs
  , help2man <!nodoc>
  , node-minipass
  , node-yallist
- , node-yaml (>= 2.0.1~)
- , dh-nodejs
-Standards-Version: 4.6.1
+ , node-yaml (>= 2.3.4+~cs0.4.0-1~)
+ , node-minipass (>> 3.3.6+~cs9.4.19-3~) <!nocheck>
+ , node-tap (>> 16.3.7+ds1+~cs50.9.19-5~) <!nocheck>
+ , ts-node <!nocheck>
+ , node-typescript
+Standards-Version: 4.7.0
 Vcs-Browser: https://salsa.debian.org/js-team/node-tap-parser
 Vcs-Git: https://salsa.debian.org/js-team/node-tap-parser.git
 Homepage: https://github.com/substack/tap-parser
@@ -20,10 +24,13 @@ Rules-Requires-Root: no
 Package: node-tap-parser
 Architecture: all
 Depends: ${misc:Depends}
- , node-minipass
+ , node-minipass (>> 3.3.6+~cs9.4.19-3~)
  , node-yallist
- , node-yaml (>= 2.0.1~)
+ , node-yaml (>= 2.3.4+~cs0.4.0-1~)
  , nodejs:any
+Multi-Arch: foreign
+Breaks: node-tap (<< 16.3.7+ds1+~cs50.9.19-5~)
+ , node-tap-mocha-reporter (<< 5.0.3+~2.0.2-3~)
 Provides: ${nodejs:Provides}
 Description: Test anything protocol stream parser - Node.js module
  This module parses tap-formatted input as a stream of JavaScript

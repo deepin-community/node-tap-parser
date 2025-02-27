@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser-stringify.js TAP version-in-yaml.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP version-in-yaml.tap bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -21,6 +21,7 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
           "diag": Object {
             "version": String(
               
@@ -28,8 +29,15 @@ Array [
             ),
           },
           "fullname": "child indented",
+          "id": 0,
           "name": "some yaml",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -44,6 +52,7 @@ Array [
           "fail": 1,
           "failures": Array [
             Result {
+              "buffered": false,
               "diag": Object {
                 "version": String(
                   
@@ -51,8 +60,15 @@ Array [
                 ),
               },
               "fullname": "child indented",
+              "id": 0,
               "name": "some yaml",
               "ok": false,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           "ok": false,
@@ -68,6 +84,12 @@ Array [
           "time": null,
           "todo": 0,
         },
+      ],
+      Array [
+        "finish",
+      ],
+      Array [
+        "close",
       ],
     ],
   ],
@@ -96,10 +118,16 @@ Array [
       "todo": 0,
     },
   ],
+  Array [
+    "finish",
+  ],
+  Array [
+    "close",
+  ],
 ]
 `
 
-exports[`test/parser-stringify.js TAP version-in-yaml.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP version-in-yaml.tap bail > stringified 1`] = `
 TAP version 13
 # Subtest: child indented
     not ok - some yaml
@@ -113,21 +141,21 @@ Bail out! some yaml
 
 `
 
-exports[`test/parser-stringify.js TAP version-in-yaml.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP version-in-yaml.tap bail > stringified flat 1`] = `
 TAP version 13
 # Subtest: child indented
-    not ok - some yaml
-      ---
-      version: |-
-        
-        TAP version 13
-      ...
-    Bail out! some yaml
+not ok 1 - child indented > some yaml
+  ---
+  version: |-
+    
+    TAP version 13
+  ...
+Bail out! some yaml
 Bail out! some yaml
 
 `
 
-exports[`test/parser-stringify.js TAP version-in-yaml.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP version-in-yaml.tap default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -143,6 +171,7 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
           "diag": Object {
             "version": String(
               
@@ -150,13 +179,21 @@ Array [
             ),
           },
           "fullname": "child indented",
+          "id": 0,
           "name": "some yaml",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -173,6 +210,7 @@ Array [
           "fail": 1,
           "failures": Array [
             Result {
+              "buffered": false,
               "diag": Object {
                 "version": String(
                   
@@ -180,8 +218,15 @@ Array [
                 ),
               },
               "fullname": "child indented",
+              "id": 0,
               "name": "some yaml",
               "ok": false,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           "ok": false,
@@ -198,15 +243,29 @@ Array [
           "todo": 0,
         },
       ],
+      Array [
+        "finish",
+      ],
+      Array [
+        "close",
+      ],
     ],
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "child indented",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -219,6 +278,7 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
           "diag": Object {
             "version": String(
               
@@ -226,13 +286,21 @@ Array [
             ),
           },
           "fullname": "child unindented",
+          "id": 0,
           "name": "some yaml",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -249,6 +317,7 @@ Array [
           "fail": 1,
           "failures": Array [
             Result {
+              "buffered": false,
               "diag": Object {
                 "version": String(
                   
@@ -256,8 +325,15 @@ Array [
                 ),
               },
               "fullname": "child unindented",
+              "id": 0,
               "name": "some yaml",
               "ok": false,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           "ok": false,
@@ -274,15 +350,29 @@ Array [
           "todo": 0,
         },
       ],
+      Array [
+        "finish",
+      ],
+      Array [
+        "close",
+      ],
     ],
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 2,
       "name": "child unindented",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -295,6 +385,7 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
           "diag": Object {
             "version": String(
               
@@ -302,13 +393,21 @@ Array [
             ),
           },
           "fullname": "",
+          "id": 0,
           "name": "some yaml",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -325,6 +424,7 @@ Array [
           "fail": 1,
           "failures": Array [
             Result {
+              "buffered": false,
               "diag": Object {
                 "version": String(
                   
@@ -332,8 +432,15 @@ Array [
                 ),
               },
               "fullname": "",
+              "id": 0,
               "name": "some yaml",
               "ok": false,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           "ok": false,
@@ -350,15 +457,29 @@ Array [
           "todo": 0,
         },
       ],
+      Array [
+        "finish",
+      ],
+      Array [
+        "close",
+      ],
     ],
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 3,
       "name": "child unnamed",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -371,6 +492,7 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
           "diag": Object {
             "version": String(
               
@@ -378,13 +500,21 @@ Array [
             ),
           },
           "fullname": "child buffered",
+          "id": 0,
           "name": "some yaml",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -401,6 +531,7 @@ Array [
           "fail": 1,
           "failures": Array [
             Result {
+              "buffered": false,
               "diag": Object {
                 "version": String(
                   
@@ -408,8 +539,15 @@ Array [
                 ),
               },
               "fullname": "child buffered",
+              "id": 0,
               "name": "some yaml",
               "ok": false,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           "ok": false,
@@ -426,21 +564,35 @@ Array [
           "todo": 0,
         },
       ],
+      Array [
+        "finish",
+      ],
+      Array [
+        "close",
+      ],
     ],
   ],
   Array [
     "assert",
     Result {
       "buffered": true,
+      "diag": null,
       "fullname": "",
       "id": 4,
       "name": "child buffered",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 4,
       "start": 1,
     },
@@ -457,29 +609,60 @@ Array [
       "fail": 4,
       "failures": Array [
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "",
           "id": 1,
           "name": "child indented",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "",
           "id": 2,
           "name": "child unindented",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "",
           "id": 3,
           "name": "child unnamed",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
         Result {
           "buffered": true,
+          "diag": null,
           "fullname": "",
           "id": 4,
           "name": "child buffered",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       "ok": false,
@@ -496,10 +679,225 @@ Array [
       "todo": 0,
     },
   ],
+  Array [
+    "finish",
+  ],
+  Array [
+    "close",
+  ],
 ]
 `
 
-exports[`test/parser-stringify.js TAP version-in-yaml.tap default settings > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP version-in-yaml.tap default settings > parsed flat 1`] = `
+Array [
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "assert",
+    Result {
+      "buffered": false,
+      "diag": Object {
+        "version": String(
+          
+          TAP version 13
+        ),
+      },
+      "fullname": "",
+      "id": 1,
+      "name": "child indented > some yaml",
+      "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "buffered": false,
+      "diag": Object {
+        "version": String(
+          
+          TAP version 13
+        ),
+      },
+      "fullname": "",
+      "id": 2,
+      "name": "child unindented > some yaml",
+      "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "buffered": false,
+      "diag": Object {
+        "version": String(
+          
+          TAP version 13
+        ),
+      },
+      "fullname": "",
+      "id": 3,
+      "name": "some yaml",
+      "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "buffered": false,
+      "diag": null,
+      "fullname": "",
+      "id": 4,
+      "name": "child unnamed",
+      "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "buffered": false,
+      "diag": Object {
+        "version": String(
+          
+          TAP version 13
+        ),
+      },
+      "fullname": "",
+      "id": 5,
+      "name": "child buffered > some yaml",
+      "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
+    },
+  ],
+  Array [
+    "comment",
+    "# failed 4 of 4 tests\\n",
+  ],
+  Array [
+    "plan",
+    Object {
+      "end": 5,
+      "start": 1,
+    },
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 4,
+      "fail": 4,
+      "failures": Array [
+        Result {
+          "buffered": false,
+          "diag": null,
+          "fullname": "",
+          "id": 1,
+          "name": "child indented",
+          "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
+        },
+        Result {
+          "buffered": false,
+          "diag": null,
+          "fullname": "",
+          "id": 2,
+          "name": "child unindented",
+          "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
+        },
+        Result {
+          "buffered": false,
+          "diag": null,
+          "fullname": "",
+          "id": 4,
+          "name": "child unnamed",
+          "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
+        },
+        Result {
+          "buffered": true,
+          "diag": null,
+          "fullname": "",
+          "id": 4,
+          "name": "child buffered",
+          "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
+        },
+      ],
+      "ok": false,
+      "pass": 0,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 4,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 1,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+  Array [
+    "finish",
+  ],
+  Array [
+    "close",
+  ],
+]
+`
+
+exports[`test/parse-stringify.ts TAP version-in-yaml.tap default settings > stringified 1`] = `
 TAP version 13
 # Subtest: child indented
     not ok - some yaml
@@ -546,54 +944,50 @@ not ok 4 - child buffered
 
 `
 
-exports[`test/parser-stringify.js TAP version-in-yaml.tap default settings > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP version-in-yaml.tap default settings > stringified flat 1`] = `
 TAP version 13
 # Subtest: child indented
-    not ok - some yaml
-      ---
-      version: |-
-        
-        TAP version 13
-      ...
-    1..1
-    # failed 1 test
-not ok 1 - child indented
+not ok 1 - child indented > some yaml
+  ---
+  version: |-
+    
+    TAP version 13
+  ...
+# failed 1 test
+not ok 2 - child indented
 # Subtest: child unindented
-    not ok - some yaml
-      ---
-      version: |-
-        
-        TAP version 13
-      ...
-    1..1
-    # failed 1 test
-not ok 2 - child unindented
+not ok 3 - child unindented > some yaml
+  ---
+  version: |-
+    
+    TAP version 13
+  ...
+# failed 1 test
+not ok 4 - child unindented
 # Subtest
-    not ok - some yaml
-      ---
-      version: |-
-        
-        TAP version 13
-      ...
-    1..1
-    # failed 1 test
-not ok 3 - child unnamed
+not ok 5 - some yaml
+  ---
+  version: |-
+    
+    TAP version 13
+  ...
+# failed 1 test
+not ok 6 - child unnamed
 # Subtest: child buffered
-    not ok - some yaml
-      ---
-      version: |-
-        
-        TAP version 13
-      ...
-    1..1
-    # failed 1 test
-not ok 4 - child buffered
-1..4
+not ok 7 - child buffered > some yaml
+  ---
+  version: |-
+    
+    TAP version 13
+  ...
+# failed 1 test
+not ok 8 - child buffered
+1..8
 # failed 4 of 4 tests
 
 `
 
-exports[`test/parser-stringify.js TAP version-in-yaml.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP version-in-yaml.tap strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -609,6 +1003,7 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
           "diag": Object {
             "version": String(
               
@@ -616,13 +1011,21 @@ Array [
             ),
           },
           "fullname": "child indented",
+          "id": 0,
           "name": "some yaml",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -639,6 +1042,7 @@ Array [
           "fail": 1,
           "failures": Array [
             Result {
+              "buffered": false,
               "diag": Object {
                 "version": String(
                   
@@ -646,8 +1050,15 @@ Array [
                 ),
               },
               "fullname": "child indented",
+              "id": 0,
               "name": "some yaml",
               "ok": false,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           "ok": false,
@@ -664,15 +1075,29 @@ Array [
           "todo": 0,
         },
       ],
+      Array [
+        "finish",
+      ],
+      Array [
+        "close",
+      ],
     ],
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "child indented",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -685,6 +1110,7 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
           "diag": Object {
             "version": String(
               
@@ -692,13 +1118,21 @@ Array [
             ),
           },
           "fullname": "child unindented",
+          "id": 0,
           "name": "some yaml",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -715,6 +1149,7 @@ Array [
           "fail": 1,
           "failures": Array [
             Result {
+              "buffered": false,
               "diag": Object {
                 "version": String(
                   
@@ -722,8 +1157,15 @@ Array [
                 ),
               },
               "fullname": "child unindented",
+              "id": 0,
               "name": "some yaml",
               "ok": false,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           "ok": false,
@@ -740,15 +1182,29 @@ Array [
           "todo": 0,
         },
       ],
+      Array [
+        "finish",
+      ],
+      Array [
+        "close",
+      ],
     ],
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 2,
       "name": "child unindented",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -761,6 +1217,7 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
           "diag": Object {
             "version": String(
               
@@ -768,13 +1225,21 @@ Array [
             ),
           },
           "fullname": "",
+          "id": 0,
           "name": "some yaml",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -791,6 +1256,7 @@ Array [
           "fail": 1,
           "failures": Array [
             Result {
+              "buffered": false,
               "diag": Object {
                 "version": String(
                   
@@ -798,8 +1264,15 @@ Array [
                 ),
               },
               "fullname": "",
+              "id": 0,
               "name": "some yaml",
               "ok": false,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           "ok": false,
@@ -816,15 +1289,29 @@ Array [
           "todo": 0,
         },
       ],
+      Array [
+        "finish",
+      ],
+      Array [
+        "close",
+      ],
     ],
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 3,
       "name": "child unnamed",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -837,6 +1324,7 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
           "diag": Object {
             "version": String(
               
@@ -844,13 +1332,21 @@ Array [
             ),
           },
           "fullname": "child buffered",
+          "id": 0,
           "name": "some yaml",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -867,6 +1363,7 @@ Array [
           "fail": 1,
           "failures": Array [
             Result {
+              "buffered": false,
               "diag": Object {
                 "version": String(
                   
@@ -874,8 +1371,15 @@ Array [
                 ),
               },
               "fullname": "child buffered",
+              "id": 0,
               "name": "some yaml",
               "ok": false,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           "ok": false,
@@ -892,21 +1396,35 @@ Array [
           "todo": 0,
         },
       ],
+      Array [
+        "finish",
+      ],
+      Array [
+        "close",
+      ],
     ],
   ],
   Array [
     "assert",
     Result {
       "buffered": true,
+      "diag": null,
       "fullname": "",
       "id": 4,
       "name": "child buffered",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 4,
       "start": 1,
     },
@@ -923,29 +1441,60 @@ Array [
       "fail": 4,
       "failures": Array [
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "",
           "id": 1,
           "name": "child indented",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "",
           "id": 2,
           "name": "child unindented",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "",
           "id": 3,
           "name": "child unnamed",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
         Result {
           "buffered": true,
+          "diag": null,
           "fullname": "",
           "id": 4,
           "name": "child buffered",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       "ok": false,
@@ -962,10 +1511,16 @@ Array [
       "todo": 0,
     },
   ],
+  Array [
+    "finish",
+  ],
+  Array [
+    "close",
+  ],
 ]
 `
 
-exports[`test/parser-stringify.js TAP version-in-yaml.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP version-in-yaml.tap strict > stringified 1`] = `
 TAP version 13
 # Subtest: child indented
     not ok - some yaml
@@ -1012,54 +1567,50 @@ not ok 4 - child buffered
 
 `
 
-exports[`test/parser-stringify.js TAP version-in-yaml.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP version-in-yaml.tap strict > stringified flat 1`] = `
 TAP version 13
 # Subtest: child indented
-    not ok - some yaml
-      ---
-      version: |-
-        
-        TAP version 13
-      ...
-    1..1
-    # failed 1 test
-not ok 1 - child indented
+not ok 1 - child indented > some yaml
+  ---
+  version: |-
+    
+    TAP version 13
+  ...
+# failed 1 test
+not ok 2 - child indented
 # Subtest: child unindented
-    not ok - some yaml
-      ---
-      version: |-
-        
-        TAP version 13
-      ...
-    1..1
-    # failed 1 test
-not ok 2 - child unindented
+not ok 3 - child unindented > some yaml
+  ---
+  version: |-
+    
+    TAP version 13
+  ...
+# failed 1 test
+not ok 4 - child unindented
 # Subtest
-    not ok - some yaml
-      ---
-      version: |-
-        
-        TAP version 13
-      ...
-    1..1
-    # failed 1 test
-not ok 3 - child unnamed
+not ok 5 - some yaml
+  ---
+  version: |-
+    
+    TAP version 13
+  ...
+# failed 1 test
+not ok 6 - child unnamed
 # Subtest: child buffered
-    not ok - some yaml
-      ---
-      version: |-
-        
-        TAP version 13
-      ...
-    1..1
-    # failed 1 test
-not ok 4 - child buffered
-1..4
+not ok 7 - child buffered > some yaml
+  ---
+  version: |-
+    
+    TAP version 13
+  ...
+# failed 1 test
+not ok 8 - child buffered
+1..8
 # failed 4 of 4 tests
 
 `
 
-exports[`test/parser-stringify.js TAP version-in-yaml.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP version-in-yaml.tap strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -1075,6 +1626,7 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
           "diag": Object {
             "version": String(
               
@@ -1082,8 +1634,15 @@ Array [
             ),
           },
           "fullname": "child indented",
+          "id": 0,
           "name": "some yaml",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -1098,6 +1657,7 @@ Array [
           "fail": 1,
           "failures": Array [
             Result {
+              "buffered": false,
               "diag": Object {
                 "version": String(
                   
@@ -1105,8 +1665,15 @@ Array [
                 ),
               },
               "fullname": "child indented",
+              "id": 0,
               "name": "some yaml",
               "ok": false,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           "ok": false,
@@ -1122,6 +1689,12 @@ Array [
           "time": null,
           "todo": 0,
         },
+      ],
+      Array [
+        "finish",
+      ],
+      Array [
+        "close",
       ],
     ],
   ],
@@ -1150,10 +1723,16 @@ Array [
       "todo": 0,
     },
   ],
+  Array [
+    "finish",
+  ],
+  Array [
+    "close",
+  ],
 ]
 `
 
-exports[`test/parser-stringify.js TAP version-in-yaml.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP version-in-yaml.tap strictBail > stringified 1`] = `
 TAP version 13
 # Subtest: child indented
     not ok - some yaml
@@ -1167,16 +1746,16 @@ Bail out! some yaml
 
 `
 
-exports[`test/parser-stringify.js TAP version-in-yaml.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP version-in-yaml.tap strictBail > stringified flat 1`] = `
 TAP version 13
 # Subtest: child indented
-    not ok - some yaml
-      ---
-      version: |-
-        
-        TAP version 13
-      ...
-    Bail out! some yaml
+not ok 1 - child indented > some yaml
+  ---
+  version: |-
+    
+    TAP version 13
+  ...
+Bail out! some yaml
 Bail out! some yaml
 
 `

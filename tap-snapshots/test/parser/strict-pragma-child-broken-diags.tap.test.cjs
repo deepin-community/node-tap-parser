@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser.js TAP strict-pragma-child-broken-diags.tap > output bail=false 1`] = `
+exports[`test/parser.ts TAP strict-pragma-child-broken-diags.tap > output bail=false 1`] = `
 Array [
   Array [
     "line",
@@ -40,12 +40,28 @@ Array [
         "not ok 1 - test point in child\\n",
       ],
       Array [
+        "line",
+        "  ...\\n",
+      ],
+      Array [
+        "line",
+        "  hello: world\\n",
+      ],
+      Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "child",
           "id": 1,
           "name": "test point in child",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -88,10 +104,18 @@ Array [
               "tapError": "Non-TAP data encountered in strict mode",
             },
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "child",
               "id": 1,
               "name": "test point in child",
               "ok": false,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
             Object {
               "tapError": "no plan",
@@ -111,6 +135,9 @@ Array [
           "todo": 0,
         },
       ],
+      Array [
+        "close",
+      ],
     ],
   ],
   Array [
@@ -118,8 +145,24 @@ Array [
     "    not ok 1 - test point in child\\n",
   ],
   Array [
+    "line",
+    "      ...\\n",
+  ],
+  Array [
+    "line",
+    "  ...\\n",
+  ],
+  Array [
     "extra",
     "      ...\\n",
+  ],
+  Array [
+    "line",
+    "      hello: world\\n",
+  ],
+  Array [
+    "line",
+    "  hello: world\\n",
   ],
   Array [
     "extra",
@@ -128,19 +171,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "child",
       "id": 1,
       "name": "test point in child",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "fail",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "child",
       "id": 1,
       "name": "test point in child",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -166,10 +225,18 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "child",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -178,7 +245,8 @@ Array [
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 1,
       "start": 1,
     },
@@ -207,10 +275,18 @@ Array [
           "tapError": "Non-TAP data encountered in strict mode",
         },
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "",
           "id": 1,
           "name": "child",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       "ok": false,
@@ -230,7 +306,7 @@ Array [
 ]
 `
 
-exports[`test/parser.js TAP strict-pragma-child-broken-diags.tap > output bail=true 1`] = `
+exports[`test/parser.ts TAP strict-pragma-child-broken-diags.tap > output bail=true 1`] = `
 Array [
   Array [
     "line",
@@ -265,12 +341,28 @@ Array [
         "not ok 1 - test point in child\\n",
       ],
       Array [
+        "line",
+        "  ...\\n",
+      ],
+      Array [
+        "line",
+        "  hello: world\\n",
+      ],
+      Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "child",
           "id": 1,
           "name": "test point in child",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -305,10 +397,18 @@ Array [
               "tapError": "Non-TAP data encountered in strict mode",
             },
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "child",
               "id": 1,
               "name": "test point in child",
               "ok": false,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           "ok": false,
@@ -325,6 +425,9 @@ Array [
           "todo": 0,
         },
       ],
+      Array [
+        "close",
+      ],
     ],
   ],
   Array [
@@ -332,8 +435,24 @@ Array [
     "    not ok 1 - test point in child\\n",
   ],
   Array [
+    "line",
+    "      ...\\n",
+  ],
+  Array [
+    "line",
+    "  ...\\n",
+  ],
+  Array [
     "extra",
     "      ...\\n",
+  ],
+  Array [
+    "line",
+    "      hello: world\\n",
+  ],
+  Array [
+    "line",
+    "  hello: world\\n",
   ],
   Array [
     "extra",
@@ -342,19 +461,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "child",
       "id": 1,
       "name": "test point in child",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "fail",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "child",
       "id": 1,
       "name": "test point in child",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [

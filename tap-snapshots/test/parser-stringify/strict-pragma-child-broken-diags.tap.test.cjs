@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser-stringify.js TAP strict-pragma-child-broken-diags.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP strict-pragma-child-broken-diags.tap bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -26,10 +26,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "child",
           "id": 1,
           "name": "test point in child",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -52,10 +60,18 @@ Array [
               "tapError": "Non-TAP data encountered in strict mode",
             },
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "child",
               "id": 1,
               "name": "test point in child",
               "ok": false,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           "ok": false,
@@ -71,6 +87,12 @@ Array [
           "time": null,
           "todo": 0,
         },
+      ],
+      Array [
+        "finish",
+      ],
+      Array [
+        "close",
       ],
     ],
   ],
@@ -116,10 +138,16 @@ Array [
       "todo": 0,
     },
   ],
+  Array [
+    "finish",
+  ],
+  Array [
+    "close",
+  ],
 ]
 `
 
-exports[`test/parser-stringify.js TAP strict-pragma-child-broken-diags.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP strict-pragma-child-broken-diags.tap bail > stringified 1`] = `
 TAP version 13
 pragma +strict
 # Subtest: child
@@ -131,19 +159,19 @@ Bail out! test point in child
 
 `
 
-exports[`test/parser-stringify.js TAP strict-pragma-child-broken-diags.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP strict-pragma-child-broken-diags.tap bail > stringified flat 1`] = `
 TAP version 13
 pragma +strict
 # Subtest: child
-    not ok 1 - test point in child
-    Bail out! test point in child
+not ok 1 - child > test point in child
+Bail out! test point in child
       ...
       hello: world
 Bail out! test point in child
 
 `
 
-exports[`test/parser-stringify.js TAP strict-pragma-child-broken-diags.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP strict-pragma-child-broken-diags.tap default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -164,10 +192,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "child",
           "id": 1,
           "name": "test point in child",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -194,10 +230,18 @@ Array [
               "tapError": "Non-TAP data encountered in strict mode",
             },
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "child",
               "id": 1,
               "name": "test point in child",
               "ok": false,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
             Object {
               "tapError": "no plan",
@@ -217,6 +261,12 @@ Array [
           "todo": 0,
         },
       ],
+      Array [
+        "finish",
+      ],
+      Array [
+        "close",
+      ],
     ],
   ],
   Array [
@@ -230,15 +280,24 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "child",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 1,
       "start": 1,
     },
@@ -263,10 +322,18 @@ Array [
           "tapError": "Non-TAP data encountered in strict mode",
         },
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "",
           "id": 1,
           "name": "child",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       "ok": false,
@@ -283,10 +350,116 @@ Array [
       "todo": 0,
     },
   ],
+  Array [
+    "finish",
+  ],
+  Array [
+    "close",
+  ],
 ]
 `
 
-exports[`test/parser-stringify.js TAP strict-pragma-child-broken-diags.tap default settings > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP strict-pragma-child-broken-diags.tap default settings > parsed flat 1`] = `
+Array [
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "pragma",
+    "strict",
+    true,
+  ],
+  Array [
+    "extra",
+    "      ...\\n",
+  ],
+  Array [
+    "extra",
+    "      hello: world\\n",
+  ],
+  Array [
+    "assert",
+    Result {
+      "buffered": false,
+      "diag": null,
+      "fullname": "",
+      "id": 1,
+      "name": "child > test point in child",
+      "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
+    },
+  ],
+  Array [
+    "comment",
+    "# failed 3 test\\n",
+  ],
+  Array [
+    "plan",
+    Object {
+      "end": 1,
+      "start": 1,
+    },
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 1,
+      "fail": 3,
+      "failures": Array [
+        Object {
+          "data": "  ...\\n",
+          "tapError": "Non-TAP data encountered in strict mode",
+        },
+        Object {
+          "data": "  hello: world\\n",
+          "tapError": "Non-TAP data encountered in strict mode",
+        },
+        Result {
+          "buffered": false,
+          "diag": null,
+          "fullname": "",
+          "id": 1,
+          "name": "child",
+          "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
+        },
+      ],
+      "ok": false,
+      "pass": 0,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 1,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 1,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+  Array [
+    "finish",
+  ],
+  Array [
+    "close",
+  ],
+]
+`
+
+exports[`test/parse-stringify.ts TAP strict-pragma-child-broken-diags.tap default settings > stringified 1`] = `
 TAP version 13
 pragma +strict
 # Subtest: child
@@ -301,22 +474,22 @@ not ok 1 - child
 
 `
 
-exports[`test/parser-stringify.js TAP strict-pragma-child-broken-diags.tap default settings > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP strict-pragma-child-broken-diags.tap default settings > stringified flat 1`] = `
 TAP version 13
 pragma +strict
 # Subtest: child
-    not ok 1 - test point in child
-    # test count(1) != plan(null)
-    # failed 4 test
+not ok 1 - child > test point in child
+# test count(1) != plan(null)
+# failed 4 test
       ...
       hello: world
-not ok 1 - child
-1..1
+not ok 2 - child
+1..2
 # failed 3 test
 
 `
 
-exports[`test/parser-stringify.js TAP strict-pragma-child-broken-diags.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP strict-pragma-child-broken-diags.tap strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -337,10 +510,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "child",
           "id": 1,
           "name": "test point in child",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -367,10 +548,18 @@ Array [
               "tapError": "Non-TAP data encountered in strict mode",
             },
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "child",
               "id": 1,
               "name": "test point in child",
               "ok": false,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
             Object {
               "tapError": "no plan",
@@ -390,6 +579,12 @@ Array [
           "todo": 0,
         },
       ],
+      Array [
+        "finish",
+      ],
+      Array [
+        "close",
+      ],
     ],
   ],
   Array [
@@ -403,15 +598,24 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "child",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 1,
       "start": 1,
     },
@@ -436,10 +640,18 @@ Array [
           "tapError": "Non-TAP data encountered in strict mode",
         },
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "",
           "id": 1,
           "name": "child",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       "ok": false,
@@ -456,10 +668,16 @@ Array [
       "todo": 0,
     },
   ],
+  Array [
+    "finish",
+  ],
+  Array [
+    "close",
+  ],
 ]
 `
 
-exports[`test/parser-stringify.js TAP strict-pragma-child-broken-diags.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP strict-pragma-child-broken-diags.tap strict > stringified 1`] = `
 TAP version 13
 pragma +strict
 # Subtest: child
@@ -474,22 +692,22 @@ not ok 1 - child
 
 `
 
-exports[`test/parser-stringify.js TAP strict-pragma-child-broken-diags.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP strict-pragma-child-broken-diags.tap strict > stringified flat 1`] = `
 TAP version 13
 pragma +strict
 # Subtest: child
-    not ok 1 - test point in child
-    # test count(1) != plan(null)
-    # failed 4 test
+not ok 1 - child > test point in child
+# test count(1) != plan(null)
+# failed 4 test
       ...
       hello: world
-not ok 1 - child
-1..1
+not ok 2 - child
+1..2
 # failed 3 test
 
 `
 
-exports[`test/parser-stringify.js TAP strict-pragma-child-broken-diags.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP strict-pragma-child-broken-diags.tap strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -510,10 +728,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "child",
           "id": 1,
           "name": "test point in child",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -536,10 +762,18 @@ Array [
               "tapError": "Non-TAP data encountered in strict mode",
             },
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "child",
               "id": 1,
               "name": "test point in child",
               "ok": false,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           "ok": false,
@@ -555,6 +789,12 @@ Array [
           "time": null,
           "todo": 0,
         },
+      ],
+      Array [
+        "finish",
+      ],
+      Array [
+        "close",
       ],
     ],
   ],
@@ -600,10 +840,16 @@ Array [
       "todo": 0,
     },
   ],
+  Array [
+    "finish",
+  ],
+  Array [
+    "close",
+  ],
 ]
 `
 
-exports[`test/parser-stringify.js TAP strict-pragma-child-broken-diags.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP strict-pragma-child-broken-diags.tap strictBail > stringified 1`] = `
 TAP version 13
 pragma +strict
 # Subtest: child
@@ -615,12 +861,12 @@ Bail out! test point in child
 
 `
 
-exports[`test/parser-stringify.js TAP strict-pragma-child-broken-diags.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP strict-pragma-child-broken-diags.tap strictBail > stringified flat 1`] = `
 TAP version 13
 pragma +strict
 # Subtest: child
-    not ok 1 - test point in child
-    Bail out! test point in child
+not ok 1 - child > test point in child
+Bail out! test point in child
       ...
       hello: world
 Bail out! test point in child
