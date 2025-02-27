@@ -1,0 +1,5 @@
+@types/node
+ts-node
+@types/tap
+tap
+minipass

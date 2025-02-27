@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser-stringify.js TAP buffered-nested-ok-top-failure.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP buffered-nested-ok-top-failure.tap bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -13,7 +13,8 @@ Array [
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 1,
       "start": 1,
     },
@@ -27,7 +28,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -35,9 +37,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "please sir, my son, he is sick",
+          "id": 0,
           "name": "i got better",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -61,16 +72,29 @@ Array [
           "todo": 0,
         },
       ],
+      Array [
+        "finish",
+      ],
+      Array [
+        "close",
+      ],
     ],
   ],
   Array [
     "assert",
     Result {
       "buffered": true,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "please sir, my son, he is sick",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -86,10 +110,17 @@ Array [
       "failures": Array [
         Result {
           "buffered": true,
+          "diag": null,
           "fullname": "",
           "id": 1,
           "name": "please sir, my son, he is sick",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       "ok": false,
@@ -106,10 +137,16 @@ Array [
       "todo": 0,
     },
   ],
+  Array [
+    "finish",
+  ],
+  Array [
+    "close",
+  ],
 ]
 `
 
-exports[`test/parser-stringify.js TAP buffered-nested-ok-top-failure.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP buffered-nested-ok-top-failure.tap bail > stringified 1`] = `
 TAP version 13
 1..1
 # Subtest: please sir, my son, he is sick
@@ -120,18 +157,17 @@ Bail out! please sir, my son, he is sick
 
 `
 
-exports[`test/parser-stringify.js TAP buffered-nested-ok-top-failure.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP buffered-nested-ok-top-failure.tap bail > stringified flat 1`] = `
 TAP version 13
-1..1
+1..0
 # Subtest: please sir, my son, he is sick
-    1..1
-    ok - i got better
-not ok 1 - please sir, my son, he is sick
+ok 1 - please sir, my son, he is sick > i got better
+not ok 2 - please sir, my son, he is sick
 Bail out! please sir, my son, he is sick
 
 `
 
-exports[`test/parser-stringify.js TAP buffered-nested-ok-top-failure.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP buffered-nested-ok-top-failure.tap default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -139,7 +175,8 @@ Array [
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 1,
       "start": 1,
     },
@@ -153,7 +190,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -161,9 +199,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "please sir, my son, he is sick",
+          "id": 0,
           "name": "i got better",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -187,16 +234,29 @@ Array [
           "todo": 0,
         },
       ],
+      Array [
+        "finish",
+      ],
+      Array [
+        "close",
+      ],
     ],
   ],
   Array [
     "assert",
     Result {
       "buffered": true,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "please sir, my son, he is sick",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -212,10 +272,17 @@ Array [
       "failures": Array [
         Result {
           "buffered": true,
+          "diag": null,
           "fullname": "",
           "id": 1,
           "name": "please sir, my son, he is sick",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       "ok": false,
@@ -232,10 +299,112 @@ Array [
       "todo": 0,
     },
   ],
+  Array [
+    "finish",
+  ],
+  Array [
+    "close",
+  ],
 ]
 `
 
-exports[`test/parser-stringify.js TAP buffered-nested-ok-top-failure.tap default settings > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP buffered-nested-ok-top-failure.tap default settings > parsed flat 1`] = `
+Array [
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "assert",
+    Result {
+      "buffered": false,
+      "diag": null,
+      "fullname": "",
+      "id": 1,
+      "name": "please sir, my son, he is sick > i got better",
+      "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "buffered": true,
+      "diag": null,
+      "fullname": "",
+      "id": 2,
+      "name": "please sir, my son, he is sick",
+      "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
+    },
+  ],
+  Array [
+    "comment",
+    "# failed 1 test\\n",
+  ],
+  Array [
+    "plan",
+    Object {
+      "end": 2,
+      "start": 1,
+    },
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 1,
+      "fail": 1,
+      "failures": Array [
+        Result {
+          "buffered": true,
+          "diag": null,
+          "fullname": "",
+          "id": 2,
+          "name": "please sir, my son, he is sick",
+          "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
+        },
+      ],
+      "ok": false,
+      "pass": 0,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 1,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 1,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+  Array [
+    "finish",
+  ],
+  Array [
+    "close",
+  ],
+]
+`
+
+exports[`test/parse-stringify.ts TAP buffered-nested-ok-top-failure.tap default settings > stringified 1`] = `
 TAP version 13
 1..1
 # Subtest: please sir, my son, he is sick
@@ -246,18 +415,17 @@ not ok 1 - please sir, my son, he is sick
 
 `
 
-exports[`test/parser-stringify.js TAP buffered-nested-ok-top-failure.tap default settings > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP buffered-nested-ok-top-failure.tap default settings > stringified flat 1`] = `
 TAP version 13
-1..1
+1..0
 # Subtest: please sir, my son, he is sick
-    1..1
-    ok - i got better
-not ok 1 - please sir, my son, he is sick
+ok 1 - please sir, my son, he is sick > i got better
+not ok 2 - please sir, my son, he is sick
 # failed 1 test
 
 `
 
-exports[`test/parser-stringify.js TAP buffered-nested-ok-top-failure.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP buffered-nested-ok-top-failure.tap strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -265,7 +433,8 @@ Array [
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 1,
       "start": 1,
     },
@@ -279,7 +448,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -287,9 +457,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "please sir, my son, he is sick",
+          "id": 0,
           "name": "i got better",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -313,16 +492,29 @@ Array [
           "todo": 0,
         },
       ],
+      Array [
+        "finish",
+      ],
+      Array [
+        "close",
+      ],
     ],
   ],
   Array [
     "assert",
     Result {
       "buffered": true,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "please sir, my son, he is sick",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -338,10 +530,17 @@ Array [
       "failures": Array [
         Result {
           "buffered": true,
+          "diag": null,
           "fullname": "",
           "id": 1,
           "name": "please sir, my son, he is sick",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       "ok": false,
@@ -358,10 +557,16 @@ Array [
       "todo": 0,
     },
   ],
+  Array [
+    "finish",
+  ],
+  Array [
+    "close",
+  ],
 ]
 `
 
-exports[`test/parser-stringify.js TAP buffered-nested-ok-top-failure.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP buffered-nested-ok-top-failure.tap strict > stringified 1`] = `
 TAP version 13
 1..1
 # Subtest: please sir, my son, he is sick
@@ -372,18 +577,17 @@ not ok 1 - please sir, my son, he is sick
 
 `
 
-exports[`test/parser-stringify.js TAP buffered-nested-ok-top-failure.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP buffered-nested-ok-top-failure.tap strict > stringified flat 1`] = `
 TAP version 13
-1..1
+1..0
 # Subtest: please sir, my son, he is sick
-    1..1
-    ok - i got better
-not ok 1 - please sir, my son, he is sick
+ok 1 - please sir, my son, he is sick > i got better
+not ok 2 - please sir, my son, he is sick
 # failed 1 test
 
 `
 
-exports[`test/parser-stringify.js TAP buffered-nested-ok-top-failure.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP buffered-nested-ok-top-failure.tap strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -391,7 +595,8 @@ Array [
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 1,
       "start": 1,
     },
@@ -405,7 +610,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -413,9 +619,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "please sir, my son, he is sick",
+          "id": 0,
           "name": "i got better",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -439,16 +654,29 @@ Array [
           "todo": 0,
         },
       ],
+      Array [
+        "finish",
+      ],
+      Array [
+        "close",
+      ],
     ],
   ],
   Array [
     "assert",
     Result {
       "buffered": true,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "please sir, my son, he is sick",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -464,10 +692,17 @@ Array [
       "failures": Array [
         Result {
           "buffered": true,
+          "diag": null,
           "fullname": "",
           "id": 1,
           "name": "please sir, my son, he is sick",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       "ok": false,
@@ -484,10 +719,16 @@ Array [
       "todo": 0,
     },
   ],
+  Array [
+    "finish",
+  ],
+  Array [
+    "close",
+  ],
 ]
 `
 
-exports[`test/parser-stringify.js TAP buffered-nested-ok-top-failure.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP buffered-nested-ok-top-failure.tap strictBail > stringified 1`] = `
 TAP version 13
 1..1
 # Subtest: please sir, my son, he is sick
@@ -498,13 +739,12 @@ Bail out! please sir, my son, he is sick
 
 `
 
-exports[`test/parser-stringify.js TAP buffered-nested-ok-top-failure.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP buffered-nested-ok-top-failure.tap strictBail > stringified flat 1`] = `
 TAP version 13
-1..1
+1..0
 # Subtest: please sir, my son, he is sick
-    1..1
-    ok - i got better
-not ok 1 - please sir, my son, he is sick
+ok 1 - please sir, my son, he is sick > i got better
+not ok 2 - please sir, my son, he is sick
 Bail out! please sir, my son, he is sick
 
 `

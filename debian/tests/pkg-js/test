@@ -1,1 +1,3 @@
-TAP_SNAPSHOT=1 tap -J -R tap --timeout=120 --no-cov
+TAP_SNAPSHOT=1 tap -J -R tap --timeout=300 --no-cov test/*.ts
+# not yet
+#COMPONENTS="events-to-array tap-yaml"; for C in $COMPONENTS; do ( set -e; cd $C; TAP_SNAPSHOT=1 tap -J -R tap --timeout=120 --no-cov ) ; done

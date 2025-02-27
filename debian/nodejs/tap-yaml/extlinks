@@ -1,0 +1,4 @@
+@types/node
+ts-node
+yaml
+yaml-types

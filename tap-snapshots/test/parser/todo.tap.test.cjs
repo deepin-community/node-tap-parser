@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser.js TAP todo.tap > output bail=false 1`] = `
+exports[`test/parser.ts TAP todo.tap > output bail=false 1`] = `
 Array [
   Array [
     "line",
@@ -33,10 +33,17 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "a set of tests to be done later",
           "id": 1,
           "name": "should have a thingie",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
           "todo": true,
         },
       ],
@@ -47,10 +54,17 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "a set of tests to be done later",
           "id": 2,
           "name": "should have a second whoosits also",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
           "todo": true,
         },
       ],
@@ -72,10 +86,17 @@ Array [
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "a set of tests to be done later the subset",
               "id": 1,
               "name": "should be a child thingie",
               "ok": true,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
               "todo": true,
             },
           ],
@@ -86,10 +107,17 @@ Array [
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "a set of tests to be done later the subset",
               "id": 2,
               "name": "should also be a whoosits",
               "ok": true,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
               "todo": true,
             },
           ],
@@ -111,10 +139,18 @@ Array [
               Array [
                 "assert",
                 Result {
+                  "buffered": false,
+                  "diag": null,
                   "fullname": "a set of tests to be done later the subset has some of these things",
                   "id": 1,
                   "name": "true is truthy",
                   "ok": true,
+                  "plan": null,
+                  "previous": null,
+                  "skip": false,
+                  "tapError": null,
+                  "time": null,
+                  "todo": false,
                 },
               ],
               Array [
@@ -124,10 +160,18 @@ Array [
               Array [
                 "assert",
                 Result {
+                  "buffered": false,
+                  "diag": null,
                   "fullname": "a set of tests to be done later the subset has some of these things",
                   "id": 2,
                   "name": "ten is also truthy",
                   "ok": true,
+                  "plan": null,
+                  "previous": null,
+                  "skip": false,
+                  "tapError": null,
+                  "time": null,
+                  "todo": false,
                 },
               ],
               Array [
@@ -136,7 +180,8 @@ Array [
               ],
               Array [
                 "plan",
-                Object {
+                Plan {
+                  "comment": "",
                   "end": 2,
                   "start": 1,
                 },
@@ -162,6 +207,9 @@ Array [
                   "todo": 0,
                 },
               ],
+              Array [
+                "close",
+              ],
             ],
           ],
           Array [
@@ -183,10 +231,18 @@ Array [
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "a set of tests to be done later the subset",
               "id": 3,
               "name": "has some of these things",
               "ok": true,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           Array [
@@ -195,7 +251,8 @@ Array [
           ],
           Array [
             "plan",
-            Object {
+            Plan {
+              "comment": "",
               "end": 3,
               "start": 1,
             },
@@ -228,6 +285,9 @@ Array [
               "time": null,
               "todo": 2,
             },
+          ],
+          Array [
+            "close",
           ],
         ],
       ],
@@ -274,10 +334,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "a set of tests to be done later",
           "id": 3,
           "name": "the subset",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -286,7 +354,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 3,
           "start": 1,
         },
@@ -320,6 +389,9 @@ Array [
           "todo": 2,
         },
       ],
+      Array [
+        "close",
+      ],
     ],
   ],
   Array [
@@ -329,20 +401,34 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "a set of tests to be done later",
       "id": 1,
       "name": "should have a thingie",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
       "todo": true,
     },
   ],
   Array [
     "todo",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "a set of tests to be done later",
       "id": 1,
       "name": "should have a thingie",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
       "todo": true,
     },
   ],
@@ -353,20 +439,34 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "a set of tests to be done later",
       "id": 2,
       "name": "should have a second whoosits also",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
       "todo": true,
     },
   ],
   Array [
     "todo",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "a set of tests to be done later",
       "id": 2,
       "name": "should have a second whoosits also",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
       "todo": true,
     },
   ],
@@ -381,20 +481,34 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "a set of tests to be done later the subset",
       "id": 1,
       "name": "should be a child thingie",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
       "todo": true,
     },
   ],
   Array [
     "todo",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "a set of tests to be done later the subset",
       "id": 1,
       "name": "should be a child thingie",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
       "todo": true,
     },
   ],
@@ -405,20 +519,34 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "a set of tests to be done later the subset",
       "id": 2,
       "name": "should also be a whoosits",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
       "todo": true,
     },
   ],
   Array [
     "todo",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "a set of tests to be done later the subset",
       "id": 2,
       "name": "should also be a whoosits",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
       "todo": true,
     },
   ],
@@ -433,19 +561,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "a set of tests to be done later the subset has some of these things",
       "id": 1,
       "name": "true is truthy",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "a set of tests to be done later the subset has some of these things",
       "id": 1,
       "name": "true is truthy",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -455,19 +599,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "a set of tests to be done later the subset has some of these things",
       "id": 2,
       "name": "ten is also truthy",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "a set of tests to be done later the subset has some of these things",
       "id": 2,
       "name": "ten is also truthy",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -505,10 +665,18 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "a set of tests to be done later",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -529,10 +697,17 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "another set of tests",
           "id": 1,
           "name": "is a second set",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
           "todo": true,
         },
       ],
@@ -543,10 +718,17 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "another set of tests",
           "id": 2,
           "name": "looks like english",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
           "todo": true,
         },
       ],
@@ -557,10 +739,17 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "another set of tests",
           "id": 3,
           "name": "is marked TODO",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
           "todo": true,
         },
       ],
@@ -570,7 +759,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 3,
           "start": 1,
         },
@@ -604,6 +794,9 @@ Array [
           "todo": 3,
         },
       ],
+      Array [
+        "close",
+      ],
     ],
   ],
   Array [
@@ -613,20 +806,34 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "another set of tests",
       "id": 1,
       "name": "is a second set",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
       "todo": true,
     },
   ],
   Array [
     "todo",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "another set of tests",
       "id": 1,
       "name": "is a second set",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
       "todo": true,
     },
   ],
@@ -637,20 +844,34 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "another set of tests",
       "id": 2,
       "name": "looks like english",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
       "todo": true,
     },
   ],
   Array [
     "todo",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "another set of tests",
       "id": 2,
       "name": "looks like english",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
       "todo": true,
     },
   ],
@@ -661,20 +882,34 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "another set of tests",
       "id": 3,
       "name": "is marked TODO",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
       "todo": true,
     },
   ],
   Array [
     "todo",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "another set of tests",
       "id": 3,
       "name": "is marked TODO",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
       "todo": true,
     },
   ],
@@ -693,10 +928,18 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 2,
       "name": "another set of tests",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -705,7 +948,8 @@ Array [
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 2,
       "start": 1,
     },
@@ -734,7 +978,7 @@ Array [
 ]
 `
 
-exports[`test/parser.js TAP todo.tap > output bail=true 1`] = `
+exports[`test/parser.ts TAP todo.tap > output bail=true 1`] = `
 Array [
   Array [
     "line",
@@ -762,10 +1006,17 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "a set of tests to be done later",
           "id": 1,
           "name": "should have a thingie",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
           "todo": true,
         },
       ],
@@ -776,10 +1027,17 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "a set of tests to be done later",
           "id": 2,
           "name": "should have a second whoosits also",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
           "todo": true,
         },
       ],
@@ -801,10 +1059,17 @@ Array [
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "a set of tests to be done later the subset",
               "id": 1,
               "name": "should be a child thingie",
               "ok": true,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
               "todo": true,
             },
           ],
@@ -815,10 +1080,17 @@ Array [
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "a set of tests to be done later the subset",
               "id": 2,
               "name": "should also be a whoosits",
               "ok": true,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
               "todo": true,
             },
           ],
@@ -840,10 +1112,18 @@ Array [
               Array [
                 "assert",
                 Result {
+                  "buffered": false,
+                  "diag": null,
                   "fullname": "a set of tests to be done later the subset has some of these things",
                   "id": 1,
                   "name": "true is truthy",
                   "ok": true,
+                  "plan": null,
+                  "previous": null,
+                  "skip": false,
+                  "tapError": null,
+                  "time": null,
+                  "todo": false,
                 },
               ],
               Array [
@@ -853,10 +1133,18 @@ Array [
               Array [
                 "assert",
                 Result {
+                  "buffered": false,
+                  "diag": null,
                   "fullname": "a set of tests to be done later the subset has some of these things",
                   "id": 2,
                   "name": "ten is also truthy",
                   "ok": true,
+                  "plan": null,
+                  "previous": null,
+                  "skip": false,
+                  "tapError": null,
+                  "time": null,
+                  "todo": false,
                 },
               ],
               Array [
@@ -865,7 +1153,8 @@ Array [
               ],
               Array [
                 "plan",
-                Object {
+                Plan {
+                  "comment": "",
                   "end": 2,
                   "start": 1,
                 },
@@ -891,6 +1180,9 @@ Array [
                   "todo": 0,
                 },
               ],
+              Array [
+                "close",
+              ],
             ],
           ],
           Array [
@@ -912,10 +1204,18 @@ Array [
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "a set of tests to be done later the subset",
               "id": 3,
               "name": "has some of these things",
               "ok": true,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           Array [
@@ -924,7 +1224,8 @@ Array [
           ],
           Array [
             "plan",
-            Object {
+            Plan {
+              "comment": "",
               "end": 3,
               "start": 1,
             },
@@ -957,6 +1258,9 @@ Array [
               "time": null,
               "todo": 2,
             },
+          ],
+          Array [
+            "close",
           ],
         ],
       ],
@@ -1003,10 +1307,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "a set of tests to be done later",
           "id": 3,
           "name": "the subset",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -1015,7 +1327,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 3,
           "start": 1,
         },
@@ -1049,6 +1362,9 @@ Array [
           "todo": 2,
         },
       ],
+      Array [
+        "close",
+      ],
     ],
   ],
   Array [
@@ -1058,20 +1374,34 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "a set of tests to be done later",
       "id": 1,
       "name": "should have a thingie",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
       "todo": true,
     },
   ],
   Array [
     "todo",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "a set of tests to be done later",
       "id": 1,
       "name": "should have a thingie",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
       "todo": true,
     },
   ],
@@ -1082,20 +1412,34 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "a set of tests to be done later",
       "id": 2,
       "name": "should have a second whoosits also",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
       "todo": true,
     },
   ],
   Array [
     "todo",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "a set of tests to be done later",
       "id": 2,
       "name": "should have a second whoosits also",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
       "todo": true,
     },
   ],
@@ -1110,20 +1454,34 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "a set of tests to be done later the subset",
       "id": 1,
       "name": "should be a child thingie",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
       "todo": true,
     },
   ],
   Array [
     "todo",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "a set of tests to be done later the subset",
       "id": 1,
       "name": "should be a child thingie",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
       "todo": true,
     },
   ],
@@ -1134,20 +1492,34 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "a set of tests to be done later the subset",
       "id": 2,
       "name": "should also be a whoosits",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
       "todo": true,
     },
   ],
   Array [
     "todo",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "a set of tests to be done later the subset",
       "id": 2,
       "name": "should also be a whoosits",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
       "todo": true,
     },
   ],
@@ -1162,19 +1534,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "a set of tests to be done later the subset has some of these things",
       "id": 1,
       "name": "true is truthy",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "a set of tests to be done later the subset has some of these things",
       "id": 1,
       "name": "true is truthy",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -1184,19 +1572,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "a set of tests to be done later the subset has some of these things",
       "id": 2,
       "name": "ten is also truthy",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "a set of tests to be done later the subset has some of these things",
       "id": 2,
       "name": "ten is also truthy",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -1234,10 +1638,18 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "a set of tests to be done later",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -1258,10 +1670,17 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "another set of tests",
           "id": 1,
           "name": "is a second set",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
           "todo": true,
         },
       ],
@@ -1272,10 +1691,17 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "another set of tests",
           "id": 2,
           "name": "looks like english",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
           "todo": true,
         },
       ],
@@ -1286,10 +1712,17 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "another set of tests",
           "id": 3,
           "name": "is marked TODO",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
           "todo": true,
         },
       ],
@@ -1299,7 +1732,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 3,
           "start": 1,
         },
@@ -1333,6 +1767,9 @@ Array [
           "todo": 3,
         },
       ],
+      Array [
+        "close",
+      ],
     ],
   ],
   Array [
@@ -1342,20 +1779,34 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "another set of tests",
       "id": 1,
       "name": "is a second set",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
       "todo": true,
     },
   ],
   Array [
     "todo",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "another set of tests",
       "id": 1,
       "name": "is a second set",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
       "todo": true,
     },
   ],
@@ -1366,20 +1817,34 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "another set of tests",
       "id": 2,
       "name": "looks like english",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
       "todo": true,
     },
   ],
   Array [
     "todo",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "another set of tests",
       "id": 2,
       "name": "looks like english",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
       "todo": true,
     },
   ],
@@ -1390,20 +1855,34 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "another set of tests",
       "id": 3,
       "name": "is marked TODO",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
       "todo": true,
     },
   ],
   Array [
     "todo",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "another set of tests",
       "id": 3,
       "name": "is marked TODO",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
       "todo": true,
     },
   ],
@@ -1422,10 +1901,18 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 2,
       "name": "another set of tests",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -1434,7 +1921,8 @@ Array [
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 2,
       "start": 1,
     },

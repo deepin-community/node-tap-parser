@@ -1,2 +1,5 @@
 debian/tap-parser.1
+dist/
 tap-snapshots/tap-yaml/
+tap-yaml/dist/
+tap-yaml/node_modules/

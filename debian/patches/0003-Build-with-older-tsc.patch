@@ -1,0 +1,19 @@
+From: =?utf-8?q?Bastien_Roucari=C3=A8s?= <rouca@debian.org>
+Date: Thu, 1 Aug 2024 09:53:32 +0000
+Subject: Build with older tsc
+
+Forwarded: not-needed
+---
+ tap-yaml/src/types/bigint.ts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/tap-yaml/src/types/bigint.ts b/tap-yaml/src/types/bigint.ts
+index 67689e3..b49fa33 100644
+--- a/tap-yaml/src/types/bigint.ts
++++ b/tap-yaml/src/types/bigint.ts
+@@ -28,4 +28,4 @@ export const bigint = {
+     const value = (item.value as BigInt).toString() + 'n'
+     return stringifyString({ value }, ctx, onComment, onChompKeep)
+   }
+-} satisfies ScalarTag
++} as ScalarTag

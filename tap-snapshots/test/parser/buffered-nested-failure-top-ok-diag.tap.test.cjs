@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser.js TAP buffered-nested-failure-top-ok-diag.tap > output bail=false 1`] = `
+exports[`test/parser.ts TAP buffered-nested-failure-top-ok-diag.tap > output bail=false 1`] = `
 Array [
   Array [
     "line",
@@ -21,7 +21,8 @@ Array [
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 1,
       "start": 1,
     },
@@ -59,7 +60,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -71,9 +73,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "my kids are fine",
+          "id": 0,
           "name": "no they aren't",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -92,9 +103,18 @@ Array [
           "fail": 1,
           "failures": Array [
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "my kids are fine",
+              "id": 0,
               "name": "no they aren't",
               "ok": false,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           "ok": false,
@@ -111,6 +131,9 @@ Array [
           "todo": 0,
         },
       ],
+      Array [
+        "close",
+      ],
     ],
   ],
   Array [
@@ -124,17 +147,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "my kids are fine",
+      "id": 0,
       "name": "no they aren't",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "fail",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "my kids are fine",
+      "id": 0,
       "name": "no they aren't",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -156,6 +197,12 @@ Array [
       "id": 1,
       "name": "my kids are fine",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -169,6 +216,12 @@ Array [
       "id": 1,
       "name": "my kids are fine",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -182,6 +235,12 @@ Array [
       "id": 1,
       "name": "my kids are fine",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -208,7 +267,7 @@ Array [
 ]
 `
 
-exports[`test/parser.js TAP buffered-nested-failure-top-ok-diag.tap > output bail=true 1`] = `
+exports[`test/parser.ts TAP buffered-nested-failure-top-ok-diag.tap > output bail=true 1`] = `
 Array [
   Array [
     "line",
@@ -224,7 +283,8 @@ Array [
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 1,
       "start": 1,
     },
@@ -262,7 +322,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -274,9 +335,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "my kids are fine",
+          "id": 0,
           "name": "no they aren't",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -295,9 +365,18 @@ Array [
           "fail": 1,
           "failures": Array [
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "my kids are fine",
+              "id": 0,
               "name": "no they aren't",
               "ok": false,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           "ok": false,
@@ -314,6 +393,9 @@ Array [
           "todo": 0,
         },
       ],
+      Array [
+        "close",
+      ],
     ],
   ],
   Array [
@@ -327,17 +409,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "my kids are fine",
+      "id": 0,
       "name": "no they aren't",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "fail",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "my kids are fine",
+      "id": 0,
       "name": "no they aren't",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
